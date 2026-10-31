@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinelist - Film</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <!-- Section Film Spotlight -->
+<section class="film-spotlight-carousel" id="carouselWrapper">
+    <!-- Track -->
+    <div class="spotlight-track" id="spotTrack">
+        
+        <!-- Slide 1 -->
+        <div class="spotlight-slide active" data-index="0">
+            <img src="https://media.themoviedb.org/t/p/original/twiVn9oFXOVR0uoYgawyEBlnFu8.jpg" alt="The Odyssey" class="spotlight-backdrop">
+            <div class="spotlight-gradient-overlay"></div>
+            <div class="spotlight-content-left">
+                <h1 class="spotlight-title">The Odyssey</h1>
+                <div class="spotlight-metadata">
+                    <span>2026</span><span class="spotlight-dot">•</span><span>Adventure / Action</span><span class="spotlight-dot">•</span><span>2h 52m</span><span class="spotlight-dot">•</span><span class="spotlight-age-box">13+</span>
+                </div>
+                <div class="spotlight-rating">
+                    <i class="fa-solid fa-star" style="color: #f5c518;"></i>
+                    <span class="spotlight-rating-score">4.8 / 5.0</span>
+                    <span class="spotlight-rating-count">(12.4K ulasan)</span>
+                </div>
+                <p class="spotlight-synopsis">After the Trojan War, Odysseus faces a dangerous voyage back to Ithaca, meeting creatures like the Cyclops Polyphemus, Sirens, and Calypso along the way.</p>
+                <div class="spotlight-actions">
+                    <button class="btn-spotlight-primary"><i class="fa-solid fa-plus"></i> Add to Watchlist</button>
+                    <button class="btn-spotlight-secondary">More Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="spotlight-slide" data-index="1">
+            <img src="https://images7.alphacoders.com/141/thumb-1920-1411727.jpg" alt="Dune: Part Two" class="spotlight-backdrop">
+            <div class="spotlight-gradient-overlay"></div>
+            <div class="spotlight-content-left">
+                <h1 class="spotlight-title">Dune: Part Two</h1>
+                <div class="spotlight-metadata">
+                    <span>2024</span><span class="spotlight-dot">•</span><span>Sci-Fi / Adventure</span><span class="spotlight-dot">•</span><span>2h 46m</span><span class="spotlight-dot">•</span><span class="spotlight-age-box">13+</span>
+                </div>
+                <div class="spotlight-rating">
+                    <i class="fa-solid fa-star" style="color: #f5c518;"></i>
+                    <span class="spotlight-rating-score">4.9 / 5.0</span>
+                    <span class="spotlight-rating-count">(45.2K ulasan)</span>
+                </div>
+                <p class="spotlight-synopsis">Paul Atreides unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family.</p>
+                <div class="spotlight-actions">
+                    <button class="btn-spotlight-primary"><i class="fa-solid fa-plus"></i> Add to Watchlist</button>
+                    <button class="btn-spotlight-secondary">More Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="spotlight-slide" data-index="2">
+            <img src="https://media.themoviedb.org/t/p/original/diOZbaDnB2CIilwd0527AB1qMvW.jpg" alt="Obsession" class="spotlight-backdrop">
+            <div class="spotlight-gradient-overlay"></div>
+            <div class="spotlight-content-left">
+                <h1 class="spotlight-title">Obsession</h1>
+                <div class="spotlight-metadata">
+                    <span>2026</span><span class="spotlight-dot">•</span><span>Psychological / Horror</span><span class="spotlight-dot">•</span><span>1h 49m</span><span class="spotlight-dot">•</span><span class="spotlight-age-box">17+</span>
+                </div>
+                <div class="spotlight-rating">
+                    <i class="fa-solid fa-star" style="color: #f5c518;"></i>
+                    <span class="spotlight-rating-score">4.2 / 5.0</span>
+                    <span class="spotlight-rating-count">(8.9K ulasan)</span>
+                </div>
+                <p class="spotlight-synopsis">When Bear breaks a One Wish Willow to force a nonconsensual relationship, a mind control curse factually traps his coworker inside a nightmare.</p>
+                <div class="spotlight-actions">
+                    <button class="btn-spotlight-primary"><i class="fa-solid fa-plus"></i> Add to Watchlist</button>
+                    <button class="btn-spotlight-secondary">More Details</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigasi -->
+    <div class="peek-peek-hint" id="peekHint" title="Geser ke film berikutnya">
+            <span class="vertical-title" id="verticalTitle">Dune: Part Two</span>
+            <span class="vertical-label">Next Film</span>
+        </div>
+
+    <!-- Navigasi Petunjuk Slide Sebelumnya (Prev) -->
+    <div class="peek-peek-hint-prev-hint" id="prevHint" title="Geser ke film sebelumnya">
+        <span class="vertical-label-prev">Prev Film</span>
+        <span class="vertical-title-prev" id="prevVerticalTitle">Obsession</span>
+    </div>
+
+   <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo">Cinelist</a>
+        </div>
+            <ul class="nav-links">
+                <li><a href="film.html">FILM</a></li>
+                <li><a href="series.html">SERIES</a></li>
+                <li><a href="list.html">LIST</a></li>
+                <li><a href="social.html">SOCIAL</a></li>
+            </ul>
+
+        <div class="nav-center">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+        </div>
+
+        <!-- Bagian yang muncul kalau LOGIN -->
+<div class="nav-right" id="loggedMenu" style="display: none;">
+    <button class="btn-rate">
+        <i class="fa-solid fa-plus"></i>Rate
+    </button>
+    
+    <!-- Tambahkan id="profileContainer" di sini -->
+    <div class="profile-dropdown-container" id="profileContainer">
+        <div class="profile-bubble" onclick="toggleDropdown()">
+            <div class="profile-avatar">
+                <img src="https://i.pinimg.com/736x/62/94/29/629429d1b8f3dea70be25ec1ed16bab7.jpg" alt="Foto Profil">
+            </div>
+            <span class="profile-username" id="profileUsername">User</span>
+        </div>
+        <div class="dropdown-menu" id="profileDropdown">
+    <a href="profile.html"><i class="fa-solid fa-user"></i> Profile Saya</a>
+    <a href="#"><i class="fa-solid fa-gear"></i> Pengaturan</a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="logout" onclick="logout()"><i class="fa-solid fa-door-open"></i> Keluar</a>
+</div>
+    </div>
+</div>
+
+<!-- Bagian yang muncul kalau GUEST (Dipisah, sejajar dengan loggedMenu) -->
+<div class="auth-buttons" id="guestMenu" style="display: none;">
+    <a href="index.html" class="btn-banner btn-register">Sign Up</a>
+    <a href="index.html" class="btn-banner btn-login">Login</a>
+</div>
+    </nav>
+</section>
+
+<section class="trending-now-section">
+    <div class="trending-header">
+        <h2 class="trend-title"><i class="fa-solid fa-fire" style="color: #f5c518; margin-right: 10px;"></i>Trending Now</h2>
+        <a href="#" class="trending-link">See All &rarr;</a>
+    </div>
+
+    <div class="trending-carousel">
+        <div class="trending-track">
+            <!-- Contoh Kartu Film -->
+            <div class="trending-card">
+                <div class="trending-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/krVa7rKCQb4OBfsr2LTJv4rTz5q.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Action / Adventure</span>
+                        <span class="hover-year">2026</span>
+                    </div>
+                </div>
+                <h4 class="trending-movie-title">The Odyssey</h4>
+            </div>
+            
+            <!-- Film 2 -->
+             <div class="trending-card">
+                <div class="trending-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/krVa7rKCQb4OBfsr2LTJv4rTz5q.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Action / Adventure</span>
+                        <span class="hover-year">2026</span>
+                    </div>
+                </div>
+                <h4 class="trending-movie-title">The Odyssey</h4>
+            </div>
+            <!-- Film 3 -->
+             <div class="trending-card">
+                <div class="trending-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/krVa7rKCQb4OBfsr2LTJv4rTz5q.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Action / Adventure</span>
+                        <span class="hover-year">2026</span>
+                    </div>
+                </div>
+                <h4 class="trending-movie-title">The Odyssey</h4>
+            </div>
+            <!-- Film 4 -->
+             <div class="trending-card">
+                <div class="trending-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/krVa7rKCQb4OBfsr2LTJv4rTz5q.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Action / Adventure</span>
+                        <span class="hover-year">2026</span>
+                    </div>
+                </div>
+                <h4 class="trending-movie-title">The Odyssey</h4>
+            </div>
+            <!-- Film 5 -->
+             <div class="trending-card">
+                <div class="trending-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/krVa7rKCQb4OBfsr2LTJv4rTz5q.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Action / Adventure</span>
+                        <span class="hover-year">2026</span>
+                    </div>
+                </div>
+                <h4 class="trending-movie-title">The Odyssey</h4>
+            </div>
+            <!-- Film 6 -->
+             <div class="trending-card">
+                <div class="trending-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/krVa7rKCQb4OBfsr2LTJv4rTz5q.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Action / Adventure</span>
+                        <span class="hover-year">2026</span>
+                    </div>
+                </div>
+                <h4 class="trending-movie-title">The Odyssey</h4>
+            </div>
+            <!-- Film 7 -->
+             <div class="trending-card">
+                <div class="trending-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/krVa7rKCQb4OBfsr2LTJv4rTz5q.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Action / Adventure</span>
+                        <span class="hover-year">2026</span>
+                    </div>
+                </div>
+                <h4 class="trending-movie-title">The Odyssey</h4>
+            </div>
+            <!-- Film 8 -->
+             <div class="trending-card">
+                <div class="trending-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/krVa7rKCQb4OBfsr2LTJv4rTz5q.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Action / Adventure</span>
+                        <span class="hover-year">2026</span>
+                    </div>
+                </div>
+                <h4 class="trending-movie-title">The Odyssey</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="new-releases-section">
+    <div class="releases-header">
+        <h2 class="releases-title"><i class="fa-regular fa-calendar-days" style="color: #63b3ed; margin-right: 10px;"></i>New Releases</h2>
+        <a href="#" class="releases-link">See All &rarr;</a>
+    </div>
+
+    <div class="releases-carousel">
+        <div class="releases-track">
+            <!-- Contoh Kartu Film -->
+            <div class="releases-card">
+                <div class="releases-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/dswjf9LMu2DAffcvTBzqYK3pu10.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 7.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Thriller / Mystery</span>
+                        <span class="hover-year">Aug 2026</span>
+                    </div>
+                </div>
+                <h4 class="releases-movie-title">Shadow Point</h4>
+            </div>
+            
+            <!-- Film 2 -->
+             <div class="releases-card">
+                <div class="releases-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/dswjf9LMu2DAffcvTBzqYK3pu10.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 7.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Thriller / Mystery</span>
+                        <span class="hover-year">Aug 2026</span>
+                    </div>
+                </div>
+                <h4 class="releases-movie-title">Shadow Point</h4>
+            </div>
+
+            <!-- Film 3 -->
+             <div class="releases-card">
+                <div class="releases-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/dswjf9LMu2DAffcvTBzqYK3pu10.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 7.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Thriller / Mystery</span>
+                        <span class="hover-year">Aug 2026</span>
+                    </div>
+                </div>
+                <h4 class="releases-movie-title">Shadow Point</h4>
+            </div>
+
+            <!-- Film 4 -->
+             <div class="releases-card">
+                <div class="releases-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/dswjf9LMu2DAffcvTBzqYK3pu10.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 7.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Thriller / Mystery</span>
+                        <span class="hover-year">Aug 2026</span>
+                    </div>
+                </div>
+                <h4 class="releases-movie-title">Shadow Point</h4>
+            </div>
+
+            <!-- Film 5 -->
+             <div class="releases-card">
+                <div class="releases-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/dswjf9LMu2DAffcvTBzqYK3pu10.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 7.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Thriller / Mystery</span>
+                        <span class="hover-year">Aug 2026</span>
+                    </div>
+                </div>
+                <h4 class="releases-movie-title">Shadow Point</h4>
+            </div>
+
+            <!-- Film 6 -->
+             <div class="releases-card">
+                <div class="releases-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/dswjf9LMu2DAffcvTBzqYK3pu10.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 7.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Thriller / Mystery</span>
+                        <span class="hover-year">Aug 2026</span>
+                    </div>
+                </div>
+                <h4 class="releases-movie-title">Shadow Point</h4>
+            </div>
+
+            <!-- Film 7 -->
+             <div class="releases-card">
+                <div class="releases-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/dswjf9LMu2DAffcvTBzqYK3pu10.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 7.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Thriller / Mystery</span>
+                        <span class="hover-year">Aug 2026</span>
+                    </div>
+                </div>
+                <h4 class="releases-movie-title">Shadow Point</h4>
+            </div>
+
+            <!-- Film 8 -->
+             <div class="releases-card">
+                <div class="releases-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/dswjf9LMu2DAffcvTBzqYK3pu10.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 7.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Thriller / Mystery</span>
+                        <span class="hover-year">Aug 2026</span>
+                    </div>
+                </div>
+                <h4 class="releases-movie-title">Shadow Point</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="animation-section">
+    <div class="animation-header">
+        <h2 class="animation-title"><i class="fa-solid fa-wand-magic-sparkles" style="color: #d6bcfa; margin-right: 10px;"></i>Animation</h2>
+        <a href="#" class="animation-link">See All &rarr;</a>
+    </div>
+
+    <div class="animation-carousel">
+        <div class="animation-track">
+            <!-- Contoh Kartu Film -->
+            <div class="animation-card">
+                <div class="animation-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg" alt="Poster Film">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 9.1</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Animation / Family</span>
+                        <span class="hover-year">2026</span>
+                    </div>
+                </div>
+                <h4 class="animation-movie-title">Starlight Journey</h4>
+            </div>
+            
+            <!-- Tambahkan card lainnya di sini -->
+        </div>
+    </div>
+</section>
+
+<section class="anime-section">
+    <div class="anime-header">
+        <h2 class="anime-title"><i class="fa-solid fa-ghost" style="color: #f6ad55; margin-right: 10px;"></i>Anime</h2>
+        <a href="#" class="anime-link">See All &rarr;</a>
+    </div>
+
+    <div class="anime-carousel">
+        <div class="anime-track">
+            <!-- Contoh Kartu Film -->
+            <div class="anime-card">
+                <div class="anime-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/q719jYZWnJ2i5q4z72J8C0e45mI.jpg" alt="Poster Anime">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 9.5</div>
+                    
+                    <!-- Info yang muncul saat hover -->
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Anime / Action</span>
+                        <span class="hover-year">2026</span>
+                    </div>
+                </div>
+                <h4 class="anime-movie-title">Demon Slayer: Infinity Castle</h4>
+            </div>
+            
+            <!-- Tambahkan card lainnya di sini -->
+        </div>
+    </div>
+</section>
+
+
+<!-- Tombol Floating -->
+<button class="filter-fab" id="filterFab">
+    <i class="fa-solid fa-filter"></i> <span>Filter</span>
+</button>
+
+<!-- Modal Pop-up Filter -->
+<div class="filter-modal" id="filterModal">
+    <div class="filter-content">
+        <h3>Filter Film</h3>
+        <div class="filter-group">
+            <label>Genre</label>
+            <select id="genreSelect">
+                <option value="all">Semua</option>
+                <option value="action">Action</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="horror">Horror</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>Urutkan</label>
+            <select id="sortSelect">
+                <option value="newest">Terbaru</option>
+                <option value="top">Rating Tertinggi</option>
+            </select>
+        </div>
+        <button id="applyFilter">Terapkan</button>
+    </div>
+</div>
+
+    <!-- FOOTER -->
+    <footer class="footer-fix-new">
+    <div class="footer-box">
+        
+        <!-- SISI KIRI -->
+        <div class="f-left">
+            <h2 class="f-logo">CineList</h2>
+            <p class="f-slogan">A new home for film and series lovers</p>
+            <p class="f-sub">Join us for an amazing experience.</p>
+        </div>
+
+        <!-- SISI KANAN -->
+        <div class="f-right">
+            <!-- Kotak Komunitas -->
+            <div class="f-card">
+                <h4>Social Community Hub</h4>
+                <p>Bergabunglah dengan diskusi film bersama ribuan cinephile lainnya.</p>
+                <div class="f-row-btn">
+                    <a href="#" class="f-btn">Discord</a>
+                    <a href="#" class="f-btn">Instagram</a>
+                    <a href="#" class="f-btn">X</a>
+                </div>
+            </div>
+            </div>
+
+            <!-- Bawah Kanan (Partner & Legal Sejajar) -->
+            <div class="f-split">
+                <div class="f-card sm">
+                    <h4>Streaming</h4>
+                    <div class="f-tags">
+                        <span>Netflix</span> <span>Disney+</span> <span>Prime Video</span>
+                    </div>
+                </div>
+                </div>
+                <div class="f-pripo">
+                <div class="f-card pp">
+                    <h4>Legal & Info</h4>
+                    <div class="f-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+    
+
+    <!-- BASEMENT BAWAH -->
+    <div class="f-bottom">
+        <p>&copy; 2026 CineList. All rights reserved.</p>
+    </div>
+</footer>
+
+    <!-- JAVASCRIPT -->
+     <script src="js/auth.js"></script>
+    <script src="js/film.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Header - Movie Database</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/profile-stats.css">
+</head>
+<body>
+  <a href="index.html" class="site-logo">Cinelist</a>
+  <section class="profile-header-container">
+    <div class="banner-wrapper">
+      <div class="banner-image"></div>
+      <img class="banner-image" src="https://i.pinimg.com/originals/e9/c6/c0/e9c6c087d2dc8bf126e6235e878bea95.jpg" alt="Banner Image">
+<div class="header-fade"></div>
+    </div>
+ <!-- ============================================================
+     STTS — Year in Review / Ringkasan Profil
+     Taruh section ini tepat di bawah banner. Class .stts-overlap
+     yang bikin konten "naik" menimpa banner (lihat CSS: margin-top negatif).
+     ============================================================ -->
+<section class="stts-wrap stts-overlap" aria-label="Ringkasan tontonan tahun ini">
+
+  <div class="stts-profile-head">
+    <img
+      class="stts-avatar"
+      src="https://i.pinimg.com/736x/35/0e/2f/350e2fe99f25df56a33c0148273bf2c1.jpg"
+      alt="Foto profil"
+    />
+    <h2 class="stts-username">@AhyeonJung</h2>
+    <p class="stts-user-desc">Bergabung sejak Lahir · Penikmat film sejak Lahir</p>
+  </div>
+
+  <!-- 1. KARTU RANGKUMAN UTAMA -->
+  <div class="stts-summary-grid">
+
+    <div class="stts-card stts-card--summary">
+      <span class="stts-card-label">Total Ditonton</span>
+      <span class="stts-card-number" data-stts-count="284">0</span>
+      <span class="stts-card-sub">film &amp; series</span>
+    </div>
+
+    <div class="stts-card stts-card--summary">
+      <span class="stts-card-label">Total Waktu</span>
+      <span class="stts-card-number" data-stts-count="612" data-stts-suffix="j">0</span>
+      <span class="stts-card-sub">≈ 25 hari nonstop</span>
+    </div>
+
+    <div class="stts-card stts-card--summary">
+      <span class="stts-card-label">Rating Rata-rata</span>
+      <span class="stts-card-number" data-stts-decimal="4.2">0.0</span>
+      <span class="stts-card-tag">Penonton yang Murah Hati</span>
+    </div>
+
+    <div class="stts-card stts-card--summary">
+      <span class="stts-card-label">Total Review</span>
+      <span class="stts-card-number" data-stts-count="97">0</span>
+      <span class="stts-card-sub">ulasan ditulis</span>
+    </div>
+
+  </div>
+
+  <!-- 2. GENRE FAVORIT & PERBANDINGAN TONTONAN -->
+  <div class="stts-row-split">
+
+    <div class="stts-panel">
+      <h3 class="stts-panel-title">Genre Favorit</h3>
+      <div class="stts-donut-box">
+        <canvas id="sttsGenreDonut" role="img" aria-label="Diagram donat genre favorit"></canvas>
+        <div class="stts-donut-center">
+          <span class="stts-donut-center-num">Action</span>
+          <span class="stts-donut-center-sub">genre teratas</span>
+        </div>
+      </div>
+      <ul class="stts-legend" id="sttsGenreLegend"></ul>
+    </div>
+
+    <div class="stts-panel">
+      <h3 class="stts-panel-title">Film vs Series</h3>
+      <div class="stts-ratio-box">
+        <div class="stts-ratio-track">
+          <div class="stts-ratio-fill" style="width:63%;"></div>
+        </div>
+        <div class="stts-ratio-labels">
+          <span><strong>63%</strong> Film</span>
+          <span><strong>37%</strong> Series</span>
+        </div>
+      </div>
+      <p class="stts-note">Kamu lebih sering menghabiskan waktu di layar lebar ketimbang binge series.</p>
+    </div>
+
+  </div>
+
+  <!-- 3. GRAFIK KEBIASAAN KASIH RATING -->
+  <div class="stts-panel stts-panel--wide">
+    <h3 class="stts-panel-title">Kebiasaan Kasih Rating</h3>
+    <div class="stts-chart-box stts-chart-box--bar">
+      <canvas id="sttsRatingBar" role="img" aria-label="Grafik distribusi rating"></canvas>
+    </div>
+    <p class="stts-note stts-note--highlight" id="sttsRatingNote">
+      Kamu tipe penonton yang gampang puas, 60% film kamu kasih rating tinggi!
+    </p>
+  </div>
+
+  <!-- 4. GRAFIK PERJALANAN MENONTON -->
+  <div class="stts-panel stts-panel--wide">
+    <h3 class="stts-panel-title">Perjalanan Menonton Bulan ke Bulan</h3>
+    <div class="stts-chart-box stts-chart-box--line">
+      <canvas id="sttsMonthlyLine" role="img" aria-label="Grafik aktivitas menonton bulanan"></canvas>
+    </div>
+    <p class="stts-note" id="sttsMonthlyNote"></p>
+  </div>
+
+  <!-- 5. HALL OF FAME PRIBADI -->
+  <div class="stts-hof">
+    <h3 class="stts-panel-title stts-hof-title">Hall of Fame Pribadi</h3>
+    <div class="stts-hof-grid">
+
+      <div class="stts-hof-card">
+        <span class="stts-hof-icon" aria-hidden="true">↻</span>
+        <span class="stts-hof-label">Paling Sering Di-rewatch</span>
+        <span class="stts-hof-value">Spirited Away</span>
+        <span class="stts-hof-detail">ditonton ulang 7 kali</span>
+      </div>
+
+      <div class="stts-hof-card">
+        <span class="stts-hof-icon" aria-hidden="true">★</span>
+        <span class="stts-hof-label">Sineas Favorit</span>
+        <span class="stts-hof-value">Hayao Miyazaki</span>
+        <span class="stts-hof-detail">muncul di 12 tontonan bintang 5</span>
+      </div>
+
+      <div class="stts-hof-card">
+        <span class="stts-hof-icon" aria-hidden="true">✎</span>
+        <span class="stts-hof-label">Review Terpopuler</span>
+        <span class="stts-hof-value">"Parasite bukan cuma soal kelas sosial..."</span>
+        <span class="stts-hof-detail">142 orang menyukai ulasan ini</span>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<!-- Side Navigation -->
+<div class="side-nav">
+    <!-- Handle -->
+    <button class="side-nav-handle" id="sideNavHandle">
+        <span>‹</span>
+    </button>
+    <!-- Navigation Panel -->
+    <div class="side-nav-panel">
+
+        <div class="side-nav-logo">
+            Stats
+        </div>
+
+        <nav class="side-nav-links">
+            <a href="profile.html">Profile</a>
+            <a href="diary.html">Diary</a>
+            <a href="stats.html">Stats</a>
+        </nav>
+    </div>
+</div>
+  </section>
+  
+  <footer class="footer-fix-new">
+    <div class="footer-box">
+        
+        <!-- SISI KIRI -->
+        <div class="f-left">
+            <h2 class="f-logo">CineList</h2>
+            <p class="f-slogan">A new home for film and series lovers</p>
+            <p class="f-sub">Join us for an amazing experience.</p>
+        </div>
+
+        <!-- SISI KANAN -->
+        <div class="f-right">
+            <!-- Kotak Komunitas -->
+            <div class="f-card">
+                <h4>Social Community Hub</h4>
+                <p>Bergabunglah dengan diskusi film bersama ribuan cinephile lainnya.</p>
+                <div class="f-row-btn">
+                    <a href="#" class="f-btn">Discord</a>
+                    <a href="#" class="f-btn">Instagram</a>
+                    <a href="#" class="f-btn">X</a>
+                </div>
+            </div>
+            </div>
+
+            <!-- Bawah Kanan (Partner & Legal Sejajar) -->
+            <div class="f-split">
+                <div class="f-card sm">
+                    <h4>Streaming</h4>
+                    <div class="f-tags">
+                        <span>Netflix</span> <span>Disney+</span> <span>Prime Video</span>
+                    </div>
+                </div>
+                </div>
+                <div class="f-pripo">
+                <div class="f-card pp">
+                    <h4>Legal & Info</h4>
+                    <div class="f-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+    
+
+    <!-- BASEMENT BAWAH -->
+    <div class="f-bottom">
+        <p>&copy; 2026 CineList. All rights reserved.</p>
+    </div>
+</footer>
+  <!-- ==============================
+       FEATHER ICON INITIALIZATION
+  =============================== -->
+  <script>
+    feather.replace();
+  </script>
+  <script src="js/profile.js"></script>
+
+  <!-- Chart.js (dibutuhkan donut, bar, dan line chart di section stats) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+  <script src="js/profile-stats.js"></script>
+
+</body>
+
+</html>

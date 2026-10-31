@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Profile Header - Movie Database</title>
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ==============================
+       PROFILE HEADER
+  =============================== -->
+  <a href="index.html" class="site-logo">Cinelist</a>
+  <section class="profile-header-container">
+
+    <!-- ==============================
+         BANNER
+    =============================== -->
+    <div class="banner-wrapper">
+
+      <!-- Banner Image -->
+      <div class="banner-image"></div>
+      <img class="banner-image" src="https://i.pinimg.com/originals/e9/c6/c0/e9c6c087d2dc8bf126e6235e878bea95.jpg" alt="Banner Image">
+<div class="header-fade"></div>
+
+
+      <!-- ==============================
+           BANNER ACTIONS
+      =============================== -->
+      <div class="banner-actions">
+
+        <!-- Share Button -->
+        <button
+          class="header-btn"
+          type="button"
+          title="Bagikan Profil"
+        >
+          <i data-feather="share-2"></i>
+        </button>
+
+
+        <!-- Settings Button -->
+        <button
+          class="header-btn"
+          type="button"
+          title="Pengaturan"
+        >
+          <i data-feather="settings"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- ==============================
+         PROFILE INFO
+    =============================== -->
+    <div class="profile-info-wrapper">
+
+
+      <!-- ==============================
+           PROFILE AVATAR
+      =============================== -->
+      <div class="profile-avatar-wrapper">
+
+        <img class="profile-ava" src="https://i.pinimg.com/736x/35/0e/2f/350e2fe99f25df56a33c0148273bf2c1.jpg" alt="Foto profil Alex Cinema">
+
+      </div>
+
+
+      <!-- ==============================
+           USER DETAILS
+      =============================== -->
+      <div class="profile-details">
+
+          <h1 class="profile-name">
+            Jung Ahyeon
+          </h1>
+
+          <span class="profile-usn">
+            @mybini
+          </span>
+
+        <!-- ==============================
+             FOLLOWER & FOLLOWING
+        =============================== -->
+        <div class="profile-stats">
+        <!-- Followers -->
+          <a
+            href="#"
+            class="profile-stat"
+>
+
+            <i data-feather="users"></i>
+
+            <span class="stat-p-value">
+              1,240
+            </span>
+
+            <span class="stat-p-label">
+              Pengikut
+            </span>
+
+          </a>
+
+
+          <!-- Divider -->
+          <span class="stat-p-divider">
+            •
+          </span>
+
+
+          <!-- Following -->
+          <a
+            href="#"
+            class="profile-stat"
+          >
+
+            <span class="stat-p-value">
+              380
+            </span>
+
+            <span class="stat-p-label">
+              Mengikuti
+            </span>
+
+          </a>
+        </div>
+
+          <div class="profile-stats">
+          <p class="profile-bio">
+  Pecinta film sci-fi & sinematografi. Nonton apapun asal ceritanya jujur.
+</p>
+        </div>
+
+      </div>
+
+      <!-- ==============================
+           STATISTIK FILM & SERIES
+      =============================== -->
+      <div class="profile-metrics-sidebar">
+        <!-- Statistik Film -->
+        <div class="mini-stat-card">
+          <div class="mini-stat-icon">🎬</div>
+          <div>
+            <span class="mini-stat-value">128</span>
+            <span class="mini-stat-label">Movies Watched</span>
+          </div>
+        </div>
+
+        <!-- Statistik Series -->
+        <div class="mini-stat-card">
+          <div class="mini-stat-icon">📺</div>
+          <div>
+            <span class="mini-stat-value">342</span>
+            <span class="mini-stat-label">Series Episodes</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ==============================
+       TOP 4 FILM FAVORIT
+  =============================== -->
+  <section class="top-picks-container">
+
+    <div class="top-picks-heading">
+      <span class="projector-dot"></span>
+      <h2>Top Picks</h2>
+    </div>
+
+    <div class="top-picks-grid">
+
+      <div class="top-pick-card">
+        <span class="top-pick-rank">01</span>
+        <div class="top-pick-poster" style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=500&auto=format&fit=crop');"></div>
+        <span class="top-pick-title">Blade Runner 2049</span>
+      </div>
+
+      <div class="top-pick-card">
+        <span class="top-pick-rank">02</span>
+        <div class="top-pick-poster" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=500&auto=format&fit=crop');"></div>
+        <span class="top-pick-title">Interstellar</span>
+      </div>
+
+      <div class="top-pick-card">
+        <span class="top-pick-rank">03</span>
+        <div class="top-pick-poster" style="background-image: url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=500&auto=format&fit=crop');"></div>
+        <span class="top-pick-title">Dune: Part Two</span>
+      </div>
+
+      <div class="top-pick-card">
+        <span class="top-pick-rank">04</span>
+        <div class="top-pick-poster" style="background-image: url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=500&auto=format&fit=crop');"></div>
+        <span class="top-pick-title">2001: A Space Odyssey</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Side Navigation -->
+<div class="side-nav">
+    <!-- Handle -->
+    <button class="side-nav-handle" id="sideNavHandle">
+        <span>‹</span>
+    </button>
+    <!-- Navigation Panel -->
+    <div class="side-nav-panel">
+
+        <div class="side-nav-logo">
+            Profile
+        </div>
+
+        <nav class="side-nav-links">
+            <a href="profile.html">Profile</a>
+            <a href="diary.html">Diary</a>
+            <a href="stats.html">Stats</a>
+        </nav>
+    </div>
+</div>
+
+    <!-- ==============================
+     RECENTLY WATCHED
+================================= -->
+
+<section class="recently-watched">
+
+    <div class="section-header">
+        <h2>Recently Watched</h2>
+        <a href="diary.html">See all →</a>
+    </div>
+
+    <div class="recently-watched-grid">
+
+        <!-- Movie -->
+        <a href="#" class="watched-card">
+
+            <div class="watched-poster">
+                <img
+                    src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
+                    alt="Parasite">
+
+                <span class="watch-type">Movie</span>
+            </div>
+
+            <div class="watched-info">
+                <h3>Parasite</h3>
+
+                <div class="watched-meta">
+                    <span>2019</span>
+                    <span>•</span>
+                    <span>★★★★★</span>
+                </div>
+            </div>
+
+        </a>
+
+
+        <!-- Series -->
+        <a href="#" class="watched-card">
+
+            <div class="watched-poster">
+                <img
+                    src="https://image.tmdb.org/t/p/w500/8bcoQYfK9t5K4f8W7J1W4gM9Z6T.jpg"
+                    alt="Dark">
+
+                <span class="watch-type">Series</span>
+            </div>
+
+            <div class="watched-info">
+                <h3>Dark</h3>
+
+                <div class="watched-meta">
+                    <span>2017</span>
+                    <span>•</span>
+                    <span>S1 E04</span>
+                </div>
+            </div>
+
+        </a>
+
+
+        <!-- Movie -->
+        <a href="#" class="watched-card">
+
+            <div class="watched-poster">
+                <img
+                    src="https://image.tmdb.org/t/p/w500/51o8Z3tYgJ6Y5N4m9k8J7L3R2Q.jpg"
+                    alt="Oldboy">
+
+                <span class="watch-type">Movie</span>
+            </div>
+
+            <div class="watched-info">
+                <h3>Oldboy</h3>
+
+                <div class="watched-meta">
+                    <span>2003</span>
+                    <span>•</span>
+                    <span>★★★★★</span>
+                </div>
+            </div>
+
+        </a>
+
+
+        <!-- Series -->
+        <a href="#" class="watched-card">
+
+            <div class="watched-poster">
+                <img
+                    src="https://image.tmdb.org/t/p/w500/1C0K9H3M2V8R7Q6P5N4L3J2F1D.jpg"
+                    alt="Stranger Things">
+
+                <span class="watch-type">Series</span>
+            </div>
+
+            <div class="watched-info">
+                <h3>Stranger Things</h3>
+
+                <div class="watched-meta">
+                    <span>2016</span>
+                    <span>•</span>
+                    <span>S4 E09</span>
+                </div>
+            </div>
+
+        </a>
+
+
+        <!-- Movie -->
+        <a href="#" class="watched-card">
+
+            <div class="watched-poster">
+                <img
+                    src="https://image.tmdb.org/t/p/w500/9xk3A8F7D6S5G4H3J2K1L0M9N8.jpg"
+                    alt="Se7en">
+
+                <span class="watch-type">Movie</span>
+            </div>
+
+            <div class="watched-info">
+                <h3>Se7en</h3>
+
+                <div class="watched-meta">
+                    <span>1995</span>
+                    <span>•</span>
+                    <span>★★★★½</span>
+                </div>
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+<footer class="footer-fix-new">
+    <div class="footer-box">
+        
+        <!-- SISI KIRI -->
+        <div class="f-left">
+            <h2 class="f-logo">CineList</h2>
+            <p class="f-slogan">A new home for film and series lovers</p>
+            <p class="f-sub">Join us for an amazing experience.</p>
+        </div>
+
+        <!-- SISI KANAN -->
+        <div class="f-right">
+            <!-- Kotak Komunitas -->
+            <div class="f-card">
+                <h4>Social Community Hub</h4>
+                <p>Bergabunglah dengan diskusi film bersama ribuan cinephile lainnya.</p>
+                <div class="f-row-btn">
+                    <a href="#" class="f-btn">Discord</a>
+                    <a href="#" class="f-btn">Instagram</a>
+                    <a href="#" class="f-btn">X</a>
+                </div>
+            </div>
+            </div>
+
+            <!-- Bawah Kanan (Partner & Legal Sejajar) -->
+            <div class="f-split">
+                <div class="f-card sm">
+                    <h4>Streaming</h4>
+                    <div class="f-tags">
+                        <span>Netflix</span> <span>Disney+</span> <span>Prime Video</span>
+                    </div>
+                </div>
+                </div>
+                <div class="f-pripo">
+                <div class="f-card pp">
+                    <h4>Legal & Info</h4>
+                    <div class="f-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+    
+
+    <!-- BASEMENT BAWAH -->
+    <div class="f-bottom">
+        <p>&copy; 2026 CineList. All rights reserved.</p>
+    </div>
+</footer>
+
+  <!-- ==============================
+       FEATHER ICON INITIALIZATION
+  =============================== -->
+  <script>
+    feather.replace();
+  </script>
+  <script src="js/profile.js"></script>
+
+</body>
+
+</html>

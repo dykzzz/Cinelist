@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community & Friends | Cinelist</title>
+    <!-- FontAwesome & Style Utama -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo">Cinelist</a>
+        </div>
+            <ul class="nav-links">
+                <li><a href="film.html">FILM</a></li>
+                <li><a href="series.html">SERIES</a></li>
+                <li><a href="list.html">LIST</a></li>
+                <li><a href="social.html">SOCIAL</a></li>
+            </ul>
+
+        <div class="nav-center">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+        </div>
+
+        <!-- Bagian yang muncul kalau LOGIN -->
+<div class="nav-right" id="loggedMenu" style="display: none;">
+    <button class="btn-rate">
+        <i class="fa-solid fa-plus"></i>Rate
+    </button>
+    
+    <!-- Tambahkan id="profileContainer" di sini -->
+    <div class="profile-dropdown-container" id="profileContainer">
+        <div class="profile-bubble" onclick="toggleDropdown()">
+            <div class="profile-avatar">
+                <img src="https://i.pinimg.com/736x/62/94/29/629429d1b8f3dea70be25ec1ed16bab7.jpg" alt="Foto Profil">
+            </div>
+            <span class="profile-username" id="profileUsername">User</span>
+        </div>
+        <div class="dropdown-menu" id="profileDropdown">
+    <a href="profile.html"><i class="fa-solid fa-user"></i> Profile Saya</a>
+    <a href="#"><i class="fa-solid fa-gear"></i> Pengaturan</a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="logout" onclick="logout()"><i class="fa-solid fa-door-open"></i> Keluar</a>
+</div>
+    </div>
+</div>
+
+<!-- Bagian yang muncul kalau GUEST (Dipisah, sejajar dengan loggedMenu) -->
+<div class="auth-buttons" id="guestMenu" style="display: none;">
+    <a href="index.html" class="btn-banner btn-register">Sign Up</a>
+    <a href="index.html" class="btn-banner btn-login">Login</a>
+</div>
+    </nav>
+
+    <!-- KONTEN UTAMA: HALAMAN SOCIAL -->
+    <main class="social-page-container">
+        
+        <!-- Header Halaman & Tab Navigasi -->
+        <div class="social-header-section">
+            <div>
+                <h1>Community & Friends</h1>
+                <p>Eksplorasi aktivitas dan ulasan film terbaru dari jaringan pertemanan dan dunia.</p>
+            </div>
+            
+            <div class="social-tabs">
+                <button class="social-tab-btn active" data-tab="following">Following</button>
+                <button class="social-tab-btn" data-tab="global">Global</button>
+            </div>
+        </div>
+
+        <!-- TATA LETAK DUA KOLOM -->
+        <div class="social-layout-grid">
+            
+            <!-- KOLOM KIRI: FEED UTAMA (ACTIVITY CARDS) -->
+            <div class="social-main-feed">
+                
+                <!-- Activity Card 1 -->
+                <div class="activity-card" data-feed="following">
+                    <div class="activity-card-header">
+                        <div class="user-profile">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=150" alt="Avatar" class="user-avatar">
+                            <div class="user-meta-info">
+                                <span class="username">Alexandre</span>
+                                <span class="action-text">reviewed <span class="target-name">Dune: Part Two</span></span>
+                            </div>
+                        </div>
+                        <span class="activity-time">2 hours ago</span>
+                    </div>
+
+                    <div class="activity-card-body">
+                        <div class="activity-poster">
+                            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600" alt="Poster">
+                        </div>
+                        <div class="activity-content">
+                            <h3 class="movie-title-year">Dune: Part Two <span class="release-year">2024</span></h3>
+                            <div class="user-rating-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <span class="rating-number">5.0</span>
+                            </div>
+                            <p class="review-snippet">
+                                "Sebuah mahakarya fiksi ilmiah dekade ini. Skala visual dan tata suara Hans Zimmer benar-benar memukau."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card-footer">
+                        <button class="social-action-btn like-btn">
+                            <i class="fa-regular fa-heart"></i> <span class="like-count">24</span>
+                        </button>
+                        <button class="social-action-btn">
+                            <i class="fa-regular fa-comment"></i> <span class="comment-count">5</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Activity Card 2 -->
+                <div class="activity-card" data-feed="global">
+                    <div class="activity-card-header">
+                        <div class="user-profile">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150" alt="Avatar" class="user-avatar">
+                            <div class="user-meta-info">
+                                <span class="username">SarahConnor</span>
+                                <span class="action-text">watched <span class="target-name">Interstellar</span></span>
+                            </div>
+                        </div>
+                        <span class="activity-time">5 hours ago</span>
+                    </div>
+
+                    <div class="activity-card-body">
+                        <div class="activity-poster">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600" alt="Poster">
+                        </div>
+                        <div class="activity-content">
+                            <h3 class="movie-title-year">Interstellar <span class="release-year">2014</span></h3>
+                            <div class="user-rating-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                                <span class="rating-number">4.0</span>
+                            </div>
+                            <p class="review-snippet">
+                                "Nonton ulang kesekian kalinya dan musik latar belakangnya tidak pernah gagal bikin merinding."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card-footer">
+                        <button class="social-action-btn like-btn">
+                            <i class="fa-regular fa-heart"></i> <span class="like-count">112</span>
+                        </button>
+                        <button class="social-action-btn">
+                            <i class="fa-regular fa-comment"></i> <span class="comment-count">18</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- KOLOM KANAN: SIDEBAR -->
+            <aside class="social-sidebar">
+                
+                <!-- Widget: Who to Follow -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title"><i class="fa-solid fa-user-plus" style="color: #f5c518;"></i> Who to Follow</h3>
+                    
+                    <div class="follow-recommendation-list">
+                        <div class="recommendation-item">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150" alt="Avatar" class="rec-avatar">
+                            <div class="rec-info">
+                                <span class="rec-name">RizkyNugraha</span>
+                                <span class="rec-desc">Film Critic & Writer</span>
+                            </div>
+                            <button class="widget-follow-btn">Follow</button>
+                        </div>
+
+                        <div class="recommendation-item">
+                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=150" alt="Avatar" class="rec-avatar">
+                            <div class="rec-info">
+                                <span class="rec-name">DavidCine</span>
+                                <span class="rec-desc">Indie Enthusiast</span>
+                            </div>
+                            <button class="widget-follow-btn">Follow</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Widget: Trending Reviews -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title"><i class="fa-solid fa-fire" style="color: #f5c518;"></i> Trending Reviews</h3>
+                    
+                    <div class="trending-reviews-list">
+                        <a href="#" class="trending-review-item">
+                            <span class="trend-movie">Oppenheimer (2023)</span>
+                            <p class="trend-snippet">"Tiga jam durasi yang terasa sangat cepat karena intensitas dialog..."</p>
+                            <span class="trend-likes"><i class="fa-solid fa-heart"></i> 450 Likes</span>
+                        </a>
+                        <a href="#" class="trending-review-item">
+                            <span class="trend-movie">Spider-Verse (2023)</span>
+                            <p class="trend-snippet">"Gaya visual animasi paling revolusioner abad ini!"</p>
+                            <span class="trend-likes"><i class="fa-solid fa-heart"></i> 320 Likes</span>
+                        </a>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+<footer class="footer-fix-new">
+    <div class="footer-box">
+        <div class="f-left">
+            <h2 class="f-logo">CineList</h2>
+            <p class="f-slogan">A new home for film and series lovers</p>
+            <p class="f-sub">Join us for an amazing experience.</p>
+        </div>
+        <div class="f-right">
+            <div class="f-card">
+                <h4>Social Community Hub</h4>
+                <p>Bergabunglah dengan diskusi series bersama ribuan cinephile lainnya.</p>
+                <div class="f-row-btn">
+                    <a href="#" class="f-btn">Discord</a>
+                    <a href="#" class="f-btn">Instagram</a>
+                    <a href="#" class="f-btn">X</a>
+                </div>
+            </div>
+        </div>
+        <div class="f-split">
+            <div class="f-card sm">
+                <h4>Streaming</h4>
+                <div class="f-tags">
+                    <span>Netflix</span> <span>Disney+</span> <span>HBO Max</span>
+                </div>
+            </div>
+        </div>
+        <div class="f-pripo">
+            <div class="f-card pp">
+                <h4>Legal & Info</h4>
+                <div class="f-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-bottom">
+        <p>&copy; 2026 CineList. All rights reserved.</p>
+    </div>
+</footer>
+
+    <!-- TOMBOL FLOATING FILTER & MODAL -->
+    <button class="filter-fab" id="filterFab">
+        <i class="fa-solid fa-filter"></i> <span>Filter Feed</span>
+    </button>
+
+    <div class="filter-modal" id="filterModal">
+        <div class="filter-content">
+            <h3>Filter Social Feed</h3>
+            <div class="filter-group" style="margin: 15px 0;">
+                <label style="font-size: 0.85rem; color: #9ca3af;">Tampilkan Aktivitas</label>
+                <select id="feedFilterSelect" style="width: 100%; padding: 8px; margin-top: 5px; background: #0d1117; color: white; border: 1px solid #30363d; border-radius: 6px;">
+                    <option value="all">Semua Aktivitas</option>
+                    <option value="reviews">Ulasan Saja (Reviews)</option>
+                    <option value="watched">Tanda Ditonton (Watched)</option>
+                </select>
+            </div>
+            <button id="applyFilter" style="width: 100%; background: #f5c518; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer;">Terapkan</button>
+        </div>
+    </div>
+
+    <!-- SCRIPT JAVASCRIPT TERPISAH -->
+    <script src="js/social.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

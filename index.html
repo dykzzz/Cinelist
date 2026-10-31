@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinelist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <section class="banner">
+        <img src="https://wallpaperaccess.com/full/1614219.jpg" alt="Banner" class="banner-img">
+        <div class="banner-fade"></div>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo">Cinelist</a>
+        </div>
+            <ul class="nav-links">
+                <li><a href="film.html">FILM</a></li>
+                <li><a href="series.html">SERIES</a></li>
+                <li><a href="list.html">LIST</a></li>
+                <li><a href="social.html">SOCIAL</a></li>
+            </ul>
+
+        <div class="nav-center">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+        </div>
+
+        <!-- Muncul kalau LOGIN -->
+        <div class="nav-right" id="loggedMenu" style="display: none;">
+    <button class="btn-rate">
+        <i class="fa-solid fa-plus"></i>Rate
+    </button>
+    
+    <!-- Tambahkan id="profileContainer" di sini -->
+    <div class="profile-dropdown-container" id="profileContainer">
+        <div class="profile-bubble" onclick="toggleDropdown()">
+            <div class="profile-avatar">
+                <img src="https://i.pinimg.com/736x/62/94/29/629429d1b8f3dea70be25ec1ed16bab7.jpg" alt="Foto Profil">
+            </div>
+            <span class="profile-username" id="profileUsername">User</span>
+        </div>
+        <div class="dropdown-menu" id="profileDropdown">
+    <a href="profile.html"><i class="fa-solid fa-user"></i> Profile Saya</a>
+    <a href="#"><i class="fa-solid fa-gear"></i> Pengaturan</a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="logout" onclick="logout()"><i class="fa-solid fa-door-open"></i> Keluar</a>
+</div>
+    </div>
+</div>
+    </nav>
+
+    <div class="hero-text">
+        <h1 id="guestHero"><i>Join us for an amazing experience</i></h1>
+        <h1 id="loggedHero"><i>Welcome (user)</i></h1>
+
+        <!-- Muncul kalau GUEST, tetap di posisi luar navbar (bawah judul), TIDAK gantiin profile -->
+        <div class="banner-buttons" id="guestMenu">
+            <a href="register.html" class="btn-banner btn-register">Sign Up</a>
+            <a href="login.html" class="btn-banner btn-login">Login</a>
+        </div>
+    </div>
+</div>
+    </section>
+
+    <!-- SECTION: SPOTLIGHT TRENDING CAROUSEL -->
+<section class="featured-sect">
+    <h2 class="featured-title"><i class="fa-solid fa-fire" style="color: #f5c518;"></i> Featured Today</h2>
+    
+    <div class="featured-wrapper" id="featWrapper">
+        <div class="featured-track" id="featTrack">
+            
+            <!-- Slide 1 -->
+            <div class="spotlight-card active" data-index="0">
+                <img src="https://media.themoviedb.org/t/p/w1066_and_h600_face/twiVn9oFXOVR0uoYgawyEBlnFu8.jpg" alt="Backdrop" class="card-backdrop">
+                <div class="card-overlay"></div>
+                <div class="card-content-container">
+                    <div class="card-poster">
+                        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/krVa7rKCQb4OBfsr2LTJv4rTz5q.jpg" alt="Poster Interstellar">
+                    </div>
+                    <div class="card-info">
+                        <span class="movie-badge">Trending #1</span>
+                        <h1>The Odyssey</h1>
+                        <p class="movie-meta">2026 • Adventure / Action • 2h 52m</p>
+                        <div class="movie-rating"><i class="fa-solid fa-star"></i> 8.5/10</div>
+                        <p class="movie-synopsis">After the Trojan War, Odysseus faces a dangerous voyage back to Ithaca, meeting creatures like the Cyclops Polyphemus, Sirens, and Calypso along the way.</p>
+                        <div class="card-actions">
+                            <button class="btn-primary"><i class="fa-solid fa-circle-info"></i> Detail</button>
+                            <button class="btn-icon" title="Add to Watchlist"><i class="fa-solid fa-plus"></i></button>
+                            <button class="btn-icon" title="Rate Film"><i class="fa-solid fa-star"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="spotlight-card" data-index="1">
+                <img src="https://images7.alphacoders.com/141/thumb-1920-1411727.jpg" alt="Backdrop" class="card-backdrop">
+                <div class="card-overlay"></div>
+                <div class="card-content-container">
+                    <div class="card-poster">
+                        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/hgbwdRftAgu2X4RKL3qRK8NMJVB.jpg" alt="Poster Dune">
+                    </div>
+                    <div class="card-info">
+                        <span class="movie-badge">Trending #2</span>
+                        <h1>Spider-Man: Brand New Day</h1>
+                        <p class="movie-meta">2026 • Action / Adventure • 2h 25m</p>
+                        <div class="movie-rating"><i class="fa-solid fa-star"></i> 8.1/10</div>
+                        <p class="movie-synopsis">A forgotten Peter Parker lives alone as a full-time Spider-Man until mounting pressure triggers a dangerous change and a powerful new enemy emerges.</p>
+                        <div class="card-actions">
+                            <button class="btn-primary"><i class="fa-solid fa-circle-info"></i> Detail</button>
+                            <button class="btn-icon" title="Add to Watchlist"><i class="fa-solid fa-plus"></i></button>
+                            <button class="btn-icon" title="Rate Film"><i class="fa-solid fa-star"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="spotlight-card" data-index="2">
+                <img src="https://media.themoviedb.org/t/p/w1066_and_h600_face/diOZbaDnB2CIilwd0527AB1qMvW.jpg" alt="Backdrop" class="card-backdrop">
+                <div class="card-overlay"></div>
+                <div class="card-content-container">
+                    <div class="card-poster">
+                        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/vMIyzwRRPDYkxIBkJVDcLYymypp.jpg" alt="Poster Oppenheimer">
+                    </div>
+                    <div class="card-info">
+                        <span class="movie-badge">Trending #3</span>
+                        <h1>Obsession</h1>
+                        <p class="movie-meta">2026 • Psychological / Horror • 1h 49m</p>
+                        <div class="movie-rating"><i class="fa-solid fa-star"></i> 7.9/10</div>
+                        <p class="movie-synopsis">When Bear breaks a One Wish Willow to force a nonconsensual relationship, a mind control curse factually traps his coworker Nikki Freeman inside a nightmare scenario caused entirely by his unhinged obsession.</p>
+                        <div class="card-actions">
+                            <button class="btn-primary"><i class="fa-solid fa-circle-info"></i> Detail</button>
+                            <button class="btn-icon" title="Add to Watchlist"><i class="fa-solid fa-plus"></i></button>
+                            <button class="btn-icon" title="Rate Film"><i class="fa-solid fa-star"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bagian Sisi Kanan: Area Peek-a-boo dengan Judul Vertikal -->
+        <div class="peek-peek-hint" id="peekHint" title="Geser ke film berikutnya">
+            <span class="vertical-label">Next Film</span>
+            <span class="vertical-title" id="verticalTitle">Spider-Man: Brand New Day</span>
+        </div>
+
+        <!-- Tombol Navigasi Manual -->
+        <div class="carousel-nav">
+            <button class="nav-btn" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="nav-btn" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION: WHAT'S POPULAR -->
+<section class="popular-section">
+    <div class="popular-header">
+        <h2 class="section-title-wp">What's Popular</h2>
+        <!-- Tombol Tab Filter -->
+        <div class="popular-filter-tabs">
+            <button class="pop-tab-btn active" data-filter="all">All</button>
+            <button class="pop-tab-btn" data-filter="movie">Movies</button>
+            <button class="pop-tab-btn" data-filter="tv">TV Shows</button>
+        </div>
+    </div>
+
+    <!-- Horizontal Scrolling Carousel Container -->
+    <div class="popular-carousel-container">
+        <div class="popular-track" id="popularTrack">
+            
+            <!-- Card 1 (Movie) -->
+            <div class="movie-card" data-category="movie">
+                <div class="poster-wrapper">
+                    <span class="format-badge movie">Movie</span>
+                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600" alt="Poster Film">
+                    <div class="rating-badge"><i class="fa-solid fa-star"></i> 9.2</div>
+                    
+                    <!-- Overlay Info di Dalam Poster -->
+                    <div class="poster-overlay-info">
+                        <div class="title-container">
+                            <h4 class="movie-title">Dune: Part Two - Director's Special Extended Edition</h4>
+                        </div>
+                        <span class="movie-meta">2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 (TV Show) -->
+            <div class="movie-card" data-category="tv">
+                <div class="poster-wrapper">
+                    <span class="format-badge tv">TV Show</span>
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600" alt="Poster TV">
+                    <div class="rating-badge"><i class="fa-solid fa-star"></i> 8.7</div>
+                    
+                    <!-- Overlay Info di Dalam Poster -->
+                    <div class="poster-overlay-info">
+                        <div class="title-container">
+                            <h4 class="movie-title">Stranger Things Season 4</h4>
+                        </div>
+                        <span class="movie-meta">2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 (Movie) -->
+            <div class="movie-card" data-category="movie">
+                <div class="poster-wrapper">
+                    <span class="format-badge movie">Movie</span>
+                    <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=600" alt="Poster Film">
+                    <div class="rating-badge"><i class="fa-solid fa-star"></i> 8.9</div>
+                    
+                    <!-- Overlay Info di Dalam Poster -->
+                    <div class="poster-overlay-info">
+                        <div class="title-container">
+                            <h4 class="movie-title">Oppenheimer</h4>
+                        </div>
+                        <span class="movie-meta">2022</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 (TV Show) -->
+            <div class="movie-card" data-category="tv">
+                <div class="poster-wrapper">
+                    <span class="format-badge tv">TV Show</span>
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600" alt="Poster TV">
+                    <div class="rating-badge"><i class="fa-solid fa-star"></i> 9.3</div>
+                    
+                    <!-- Overlay Info di Dalam Poster -->
+                    <div class="poster-overlay-info">
+                        <div class="title-container">
+                            <h4 class="movie-title">The Boys Season 5</h4>
+                        </div>
+                        <span class="movie-meta">2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 (Movie) -->
+            <div class="movie-card" data-category="movie">
+                <div class="poster-wrapper">
+                    <span class="format-badge movie">Movie</span>
+                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=600" alt="Poster Film">
+                    <div class="rating-badge"><i class="fa-solid fa-star"></i> 8.6</div>
+                    
+                    <!-- Overlay Info di Dalam Poster -->
+                    <div class="poster-overlay-info">
+                        <div class="title-container">
+                            <h4 class="movie-title">Spiderman: Brand New Day</h4>
+                        </div>
+                        <span class="movie-meta">2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 (TV Show) -->
+            <div class="movie-card" data-category="tv">
+                <div class="poster-wrapper">
+                    <span class="format-badge tv">TV Show</span>
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600" alt="Poster TV">
+                    <div class="rating-badge"><i class="fa-solid fa-star"></i> 9.3</div>
+                    
+                    <!-- Overlay Info di Dalam Poster -->
+                    <div class="poster-overlay-info">
+                        <div class="title-container">
+                            <h4 class="movie-title">The Boys Season 5</h4>
+                        </div>
+                        <span class="movie-meta">2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 (TV Show) -->
+            <div class="movie-card" data-category="tv">
+                <div class="poster-wrapper">
+                    <span class="format-badge tv">TV Show</span>
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600" alt="Poster TV">
+                    <div class="rating-badge"><i class="fa-solid fa-star"></i> 9.3</div>
+                    
+                    <!-- Overlay Info di Dalam Poster -->
+                    <div class="poster-overlay-info">
+                        <div class="title-container">
+                            <h4 class="movie-title">The Boys Season 5</h4>
+                        </div>
+                        <span class="movie-meta">2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 (TV Show) -->
+            <div class="movie-card" data-category="tv">
+                <div class="poster-wrapper">
+                    <span class="format-badge tv">TV Show</span>
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600" alt="Poster TV">
+                    <div class="rating-badge"><i class="fa-solid fa-star"></i> 9.3</div>
+                    
+                    <!-- Overlay Info di Dalam Poster -->
+                    <div class="poster-overlay-info">
+                        <div class="title-container">
+                            <h4 class="movie-title">The Boys Season 5</h4>
+                        </div>
+                        <span class="movie-meta">2026</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="community-dual-section">
+    <div class="community-container">
+        
+        <div class="community-left-column">
+    <div class="column-header">
+        <h2 class="section-title-ac">Top Reviewers</h2>
+        <span class="section-subtitle">Pemberi ulasan teraktif minggu ini</span>
+    </div>
+
+    <div class="podium-wrapper">
+        
+        <div class="reviewer-card top-1">
+            <div class="rank-badge gold"><i class="fa-solid fa-crown"></i> #1</div>
+            <div class="reviewer-avatar-wrapper">
+                <img src="https://i.pinimg.com/736x/0d/11/56/0d1156b44171e61b319094f722a3ec45.jpg" alt="Avatar Top 1" class="reviewer-avatar">
+            </div>
+            <div class="reviewer-info">
+                <h4 class="reviewer-name">Jung Ahyeon</h4>
+                <span class="reviewer-stats">999 Ulasan</span>
+            </div>
+            <button class="follow-btn" data-username="Jung Ahyeon">Follow</button>
+        </div>
+
+        <div class="podium-group-secondary">
+            
+            <div class="reviewer-card compact">
+                <div class="rank-badge silver">#2</div>
+                <img src="https://i.pinimg.com/736x/96/4b/ac/964bac4f3b832a5df6579dda6cf59cb5.jpg" alt="Avatar Top 2" class="reviewer-avatar-small">
+                <div class="reviewer-info-compact">
+                    <h5 class="reviewer-name">Shin Eun-Soo</h5>
+                    <span class="reviewer-stats">999 Ulasan</span>
+                </div>
+                <button class="follow-btn compact-btn" data-username="ShinEunSoo">Follow</button>
+            </div>
+
+            <div class="reviewer-card compact">
+                <div class="rank-badge bronze">#3</div>
+                <img src="https://i.pinimg.com/736x/4e/27/e5/4e27e5e07b88efa1aca0b62fc3e89c72.jpg" alt="Avatar Top 3" class="reviewer-avatar-small">
+                <div class="reviewer-info-compact">
+                    <h5 class="reviewer-name">Sadie Sink</h5>
+                    <span class="reviewer-stats">999 Ulasan</span>
+                </div>
+                <button class="follow-btn compact-btn" data-username="SadieSink">Follow</button>
+            </div>
+
+            <div class="reviewer-card compact">
+                <div class="rank-badge standard">#4</div>
+                <img src="https://i.pinimg.com/736x/71/d1/05/71d105017827904e40941ba1dab51af1.jpg" alt="Avatar Top 4" class="reviewer-avatar-small">
+                <div class="reviewer-info-compact">
+                    <h5 class="reviewer-name">Choi Yihyun</h5>
+                    <span class="reviewer-stats">999 Ulasan</span>
+                </div>
+                <button class="follow-btn compact-btn" data-username="DavidCine">Follow</button>
+            </div>
+
+            <div class="reviewer-card compact">
+                <div class="rank-badge standard">#5</div>
+                <img src="https://i.pinimg.com/736x/97/e3/b9/97e3b9a36384afa656ad46800509564c.jpg" alt="Avatar Top 5" class="reviewer-avatar-small">
+                <div class="reviewer-info-compact">
+                    <h5 class="reviewer-name">My Wife</h5>
+                    <span class="reviewer-stats">999 Ulasan</span>
+                </div>
+                <button class="follow-btn compact-btn" data-username="JessicaFilm">Follow</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+        <div class="community-right-column">
+            <div class="column-header activity-header-flex">
+                <h2 class="section-title-ac">Recent Activity</h2>
+                <div class="activity-filter-tabs">
+                    <button class="act-tab-btn active" data-filter="global">Global</button>
+                    <button class="act-tab-btn" data-filter="following">Following</button>
+                </div>
+            </div>
+
+            <div class="activity-feed-container">
+                
+                <div class="activity-card" data-feed="following">
+    <div class="activity-card-header">
+        <div class="user-profile">
+            <img src="https://i.pinimg.com/1200x/38/6f/89/386f89edc02435c0b6cbe91319ab5e1b.jpg" alt="Avatar User" class="user-avatar">
+            <div class="user-meta-info">
+                <span class="username">Sadie Sink</span>
+                <span class="action-text">reviewed <span class="target-name">Jae</span></span>
+            </div>
+        </div>
+        <span class="activity-time">2 hours ago</span>
+    </div>
+
+    <div class="activity-card-body">
+        
+        <div class="activity-poster">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600" alt="Poster Film">
+        </div>
+
+        <div class="activity-movie-info">
+            <h3 class="movie-title-year">Dune: Part Two <span class="release-year">2024</span></h3>
+            <div class="user-rating-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="rating-number">5.0</span>
+            </div>
+            <span class="movie-genre-tag">Sci-Fi / Adventure</span>
+        </div>
+
+        <div class="activity-review-box">
+            <p class="review-snippet">
+                "Sebuah karya mahakarya sinematik fiksi ilmiah dekade ini. Visual, skala, dan tata suara Hans Zimmer benar-benar membawa kita langsung ke planet Arrakis."
+            </p>
+        </div>
+
+    </div>
+
+    <div class="activity-card-footer">
+        <button class="social-action-btn like-btn">
+            <i class="fa-regular fa-heart"></i> <span class="like-count">24</span>
+        </button>
+        <button class="social-action-btn">
+            <i class="fa-regular fa-comment"></i> <span class="comment-count">5</span>
+        </button>
+    </div>
+</div>
+
+                <div class="activity-card" data-feed="following">
+    <div class="activity-card-header">
+        <div class="user-profile">
+            <img src="https://i.pinimg.com/736x/2a/12/59/2a1259f274eb09cb8a0b35fcc1bf56d5.jpg" alt="Avatar User" class="user-avatar">
+            <div class="user-meta-info">
+                <span class="username">Choi Yihyun</span>
+                <span class="action-text">reviewed <span class="target-name">Jae</span></span>
+            </div>
+        </div>
+        <span class="activity-time">2 hours ago</span>
+    </div>
+
+    <div class="activity-card-body">
+        
+        <div class="activity-poster">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600" alt="Poster Film">
+        </div>
+
+        <div class="activity-movie-info">
+            <h3 class="movie-title-year">Dune: Part Two <span class="release-year">2024</span></h3>
+            <div class="user-rating-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="rating-number">5.0</span>
+            </div>
+            <span class="movie-genre-tag">Sci-Fi / Adventure</span>
+        </div>
+
+        <div class="activity-review-box">
+            <p class="review-snippet">
+                "Sebuah karya mahakarya sinematik fiksi ilmiah dekade ini. Visual, skala, dan tata suara Hans Zimmer benar-benar membawa kita langsung ke planet Arrakis."
+            </p>
+        </div>
+
+    </div>
+
+    <div class="activity-card-footer">
+        <button class="social-action-btn like-btn">
+            <i class="fa-regular fa-heart"></i> <span class="like-count">24</span>
+        </button>
+        <button class="social-action-btn">
+            <i class="fa-regular fa-comment"></i> <span class="comment-count">5</span>
+        </button>
+    </div>
+</div>
+
+
+                <div class="activity-card" data-feed="global">
+    <div class="activity-card-header">
+        <div class="user-profile">
+            <img src="https://i.pinimg.com/736x/1b/cb/7d/1bcb7d3b8a7ce1d37b382b97aee50d12.jpg" alt="Avatar User" class="user-avatar">
+            <div class="user-meta-info">
+                <span class="username">Jung Ahyeon</span>
+                <span class="action-text">reviewed <span class="target-name">Jae</span></span>
+            </div>
+        </div>
+        <span class="activity-time">2 hours ago</span>
+    </div>
+
+    <div class="activity-card-body">
+        
+        <div class="activity-poster">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600" alt="Poster Film">
+        </div>
+
+        <div class="activity-movie-info">
+            <h3 class="movie-title-year">Jae <span class="release-year">2024</span></h3>
+            <div class="user-rating-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="rating-number">5.0</span>
+            </div>
+            <span class="movie-genre-tag">Wife / Husband</span>
+        </div>
+
+        <div class="activity-review-box">
+            <p class="review-snippet">
+                "Gw suaminya Ahyeon"
+            </p>
+        </div>
+
+    </div>
+
+    <div class="activity-card-footer">
+        <button class="social-action-btn like-btn">
+            <i class="fa-regular fa-heart"></i> <span class="like-count">24</span>
+        </button>
+        <button class="social-action-btn">
+            <i class="fa-regular fa-comment"></i> <span class="comment-count">5</span>
+        </button>
+    </div>
+</div>
+
+<div class="activity-card" data-feed="global">
+    <div class="activity-card-header">
+        <div class="user-profile">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=150" alt="Avatar User" class="user-avatar">
+            <div class="user-meta-info">
+                <span class="username">Alexandre</span>
+                <span class="action-text">reviewed <span class="target-name">Dune: Part Two</span></span>
+            </div>
+        </div>
+        <span class="activity-time">2 hours ago</span>
+    </div>
+
+    <div class="activity-card-body">
+        
+        <div class="activity-poster">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600" alt="Poster Film">
+        </div>
+
+        <div class="activity-movie-info">
+            <h3 class="movie-title-year">Dune: Part Two <span class="release-year">2024</span></h3>
+            <div class="user-rating-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <span class="rating-number">5.0</span>
+            </div>
+            <span class="movie-genre-tag">Sci-Fi / Adventure</span>
+        </div>
+
+        <div class="activity-review-box">
+            <p class="review-snippet">
+                "Sebuah karya mahakarya sinematik fiksi ilmiah dekade ini. Visual, skala, dan tata suara Hans Zimmer benar-benar membawa kita langsung ke planet Arrakis."
+            </p>
+        </div>
+
+    </div>
+
+    <div class="activity-card-footer">
+        <button class="social-action-btn like-btn">
+            <i class="fa-regular fa-heart"></i> <span class="like-count">24</span>
+        </button>
+        <button class="social-action-btn">
+            <i class="fa-regular fa-comment"></i> <span class="comment-count">5</span>
+        </button>
+    </div>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="fan-favorites-section">
+    <h2 class="section-title-wp">Fan Favorites</h2>
+    <div class="fan-container">
+        
+        <div class="top3-grid">
+            
+            <div class="fan-card rank-1-card">
+                <span class="rank-badge-blue">#1</span>
+                <button class="top-add-btn" title="Add to list"><i class="fa-solid fa-plus"></i></button>
+                
+                <div class="fan-card-inner">
+                    <div class="fan-poster-large">
+                        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/dswjf9LMu2DAffcvTBzqYK3pu10.jpg" alt="Spider-Man">
+                    </div>
+                    <div class="fan-info-content">
+                        <h3 class="fan-movie-title">Spider-Man: Brand New Day</h3>
+                        <div class="fan-meta-row">
+                            <span>2026</span>
+                            <span>2h 25m</span>
+                            <span class="age-box">13+</span>
+                        </div>
+                        <div class="fan-rating-row">
+                            <span class="star-ico">⭐</span>
+                            <span class="score-val">8.1</span>
+                            <span class="votes-val">(205K)</span>
+                            <span class="rate-action-text"><i class="fa-regular fa-star"></i> Rate</span>
+                        </div>
+                        <div class="mark-watched-action">
+                            <i class="fa-regular fa-eye"></i> Mark as watched
+                        </div>
+                        <p class="fan-synopsis">
+                            A forgotten Peter Parker lives alone as a full-time Spider-Man until mounting pressure triggers a dangerous change and a powerful new enemy emerges.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="top23-side-group">
+                
+                <div class="fan-card rank-compact">
+    <span class="rank-badge-blue">#2</span>
+    <button class="top-add-btn" title="Add to list"><i class="fa-solid fa-plus"></i></button>
+    
+    <div class="fan-top-row">
+        <div class="fan-poster-medium">
+            <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg" alt="The Odyssey">
+        </div>
+        <div class="fan-info-content">
+            <h4 class="fan-movie-title-small">The Odyssey</h4>
+            <div class="fan-meta-row">
+                <span>2026</span>
+                <span>2h 52m</span>
+                <span class="age-box">13+</span>
+            </div>
+            <div class="fan-rating-row">
+                <span class="star-ico">⭐</span>
+                <span class="score-val">8.5</span>
+                <span class="votes-val">(394K)</span>
+                <span class="rate-action-text"><i class="fa-regular fa-star"></i> Rate</span>
+            </div>
+            <div class="mark-watched-action">
+                <i class="fa-regular fa-eye"></i> Mark as watched
+            </div>
+        </div>
+    </div>
+
+    <p class="fan-synopsis-short">
+        After the Trojan War, Odysseus faces a dangerous voyage back to Ithaca...
+    </p>
+</div>
+
+                <div class="fan-card rank-compact">
+                    <span class="rank-badge-blue">#3</span>
+                    <button class="top-add-btn" title="Add to list"><i class="fa-solid fa-plus"></i></button>
+                    
+                    <div class="fan-card-inner compact">
+                        <div class="fan-poster-medium">
+                            <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/4EP1qTvFc4qoVNLKeXJn452XoqD.jpg" alt="The Last House">
+                        </div>
+                        <div class="fan-info-content">
+                            <h4 class="fan-movie-title-small">The Last House</h4>
+                            <div class="fan-meta-row">
+                                <span>2026</span>
+                                <span>1h 52m</span>
+                                <span class="age-box pg">PG-13</span>
+                            </div>
+                            <div class="fan-rating-row">
+                                <span class="star-ico">⭐</span>
+                                <span class="score-val">5.5</span>
+                                <span class="votes-val">(26K)</span>
+                                <span class="rate-action-text"><i class="fa-regular fa-star"></i> Rate</span>
+                            </div>
+                            <div class="mark-watched-action">
+                                <i class="fa-regular fa-eye"></i> Mark as watched
+                            </div>
+                             </div>
+                </div>
+                            <p class="fan-synopsis-short">
+                                A family of four is suddenly sealed inside their house...
+                            </p>
+                        </div>
+
+            </div>
+        </div>
+
+        <div class="bottom-carousel-container">
+            <div class="bottom-track">
+                
+                <div class="bottom-item">
+                    <div class="bottom-poster-box">
+                        <span class="rank-badge-blue small">#4</span>
+                        <button class="card-add-btn"><i class="fa-solid fa-plus"></i></button>
+                        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/7V0Ebks0GgpKvQ7QbLAIdX5dos4.jpg" alt="House of the Dragon">
+                    </div>
+                    <h5 class="bottom-title">House of the Dragon</h5>
+                </div>
+
+                <div class="bottom-item">
+                    <div class="bottom-poster-box">
+                        <span class="rank-badge-blue small">#5</span>
+                        <button class="card-add-btn"><i class="fa-solid fa-plus"></i></button>
+                        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/lKSNsuonUq57p7BkJAzoGpz5tl2.jpg" alt="Ted Lasso">
+                    </div>
+                    <h5 class="bottom-title">Ted Lasso</h5>
+                </div>
+
+                <div class="bottom-item">
+                    <div class="bottom-poster-box">
+                        <span class="rank-badge-blue small">#6</span>
+                        <button class="card-add-btn"><i class="fa-solid fa-plus"></i></button>
+                        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/bs8mtE5561yEEdVjxecd1seNl1a.jpg" alt="Sterling Point">
+                    </div>
+                    <h5 class="bottom-title">Sterling Point</h5>
+                </div>
+
+                <div class="bottom-item">
+                    <div class="bottom-poster-box">
+                        <span class="rank-badge-blue small">#7</span>
+                        <button class="card-add-btn"><i class="fa-solid fa-plus"></i></button>
+                        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg" alt="Obsession">
+                    </div>
+                    <h5 class="bottom-title">Obsession</h5>
+                </div>
+
+                <div class="bottom-item">
+                    <div class="bottom-poster-box">
+                        <span class="rank-badge-blue small">#8</span>
+                        <button class="card-add-btn"><i class="fa-solid fa-plus"></i></button>
+                        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/gMYZZvnkVNTqSVnVCphWbPXwWwb.jpg" alt="Silo">
+                    </div>
+                    <h5 class="bottom-title">Silo</h5>
+                </div>
+
+                <div class="bottom-item">
+                    <div class="bottom-poster-box">
+                        <span class="rank-badge-blue small">#9</span>
+                        <button class="card-add-btn"><i class="fa-solid fa-plus"></i></button>
+                        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/lmrulvLbmaejTix1YaMxo1oGhH1.jpg" alt="Primetime">
+                    </div>
+                    <h5 class="bottom-title">Primetime</h5>
+                </div>
+
+                <div class="bottom-item">
+                    <div class="bottom-poster-box">
+                        <span class="rank-badge-blue small">#10</span>
+                        <button class="card-add-btn"><i class="fa-solid fa-plus"></i></button>
+                        <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/xnxxrEKtBaIcI1ewq50pLkOMU6u.jpg" alt="Furious">
+                    </div>
+                    <h5 class="bottom-title">Furious</h5>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="popular-lists-section">
+    <div class="lists-container">
+        
+        <div class="lists-header">
+            <h2 class="section-title">Popular Lists</h2>
+            <a href="#" class="browse-all-link">Browse All &rarr;</a>
+        </div>
+
+        <div class="lists-carousel-wrapper" id="listsCarousel">
+            <div class="lists-track">
+                
+                <div class="list-card">
+                    <div class="list-collage-wrapper">
+                        <div class="collage-poster main">
+                            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=400" alt="Poster 1">
+                        </div>
+                        <div class="collage-side-stack">
+                            <div class="collage-poster sub">
+                                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=400" alt="Poster 2">
+                            </div>
+                            <div class="collage-poster sub">
+                                <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=400" alt="Poster 3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="list-details">
+                        <h3 class="list-title">Mind-Bending Sci-Fi Masterpieces That Will Ruin Your Brain</h3>
+                        
+                        <div class="list-author">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=150" alt="Avatar Pembuat" class="author-avatar">
+                            <span class="author-name">Alexandre</span>
+                        </div>
+
+                        <div class="list-stats">
+                            <span><i class="fa-solid fa-film"></i> 24 films</span>
+                            <span><i class="fa-solid fa-heart liked-icon"></i> 1.4K</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-card">
+                    <div class="list-collage-wrapper">
+                        <div class="collage-poster main">
+                            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=400" alt="Poster 1">
+                        </div>
+                        <div class="collage-side-stack">
+                            <div class="collage-poster sub">
+                                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=400" alt="Poster 2">
+                            </div>
+                            <div class="collage-poster sub">
+                                <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=400" alt="Poster 3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="list-details">
+                        <h3 class="list-title">Best Soundtracks & Movie Scores of the 21st Century</h3>
+                        
+                        <div class="list-author">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150" alt="Avatar Pembuat" class="author-avatar">
+                            <span class="author-name">SarahConnor</span>
+                        </div>
+
+                        <div class="list-stats">
+                            <span><i class="fa-solid fa-film"></i> 18 films</span>
+                            <span><i class="fa-solid fa-heart liked-icon"></i> 890</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-card">
+                    <div class="list-collage-wrapper">
+                        <div class="collage-poster main">
+                            <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=400" alt="Poster 1">
+                        </div>
+                        <div class="collage-side-stack">
+                            <div class="collage-poster sub">
+                                <img src="https://images.unsplash.com/photo-1568832349008-5f3366a70e7e?q=80&w=400" alt="Poster 2">
+                            </div>
+                            <div class="collage-poster sub">
+                                <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=400" alt="Poster 3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="list-details">
+                        <h3 class="list-title">Cinematic Masterpieces Set in Outer Space & Dystopian Futures</h3>
+                        
+                        <div class="list-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150" alt="Avatar Pembuat" class="author-avatar">
+                            <span class="author-name">RizkyNugraha</span>
+                        </div>
+
+                        <div class="list-stats">
+                            <span><i class="fa-solid fa-film"></i> 32 films</span>
+                            <span><i class="fa-solid fa-heart liked-icon"></i> 2.1K</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-card">
+                    <div class="list-collage-wrapper">
+                        <div class="collage-poster main">
+                            <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=400" alt="Poster 1">
+                        </div>
+                        <div class="collage-side-stack">
+                            <div class="collage-poster sub">
+                                <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=400" alt="Poster 2">
+                            </div>
+                            <div class="collage-poster sub">
+                                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=400" alt="Poster 3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="list-details">
+                        <h3 class="list-title">Hidden Gems of Independent Cinema You Probably Missed</h3>
+                        
+                        <div class="list-author">
+                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=150" alt="Avatar Pembuat" class="author-avatar">
+                            <span class="author-name">DavidCine</span>
+                        </div>
+
+                        <div class="list-stats">
+                            <span><i class="fa-solid fa-film"></i> 15 films</span>
+                            <span><i class="fa-solid fa-heart liked-icon"></i> 650</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer-fix-new">
+    <div class="footer-box">
+        
+        <!-- SISI KIRI -->
+        <div class="f-left">
+            <h2 class="f-logo">CineList</h2>
+            <p class="f-slogan">A new home for film and series lovers</p>
+            <p class="f-sub">Join us for an amazing experience.</p>
+        </div>
+
+        <!-- SISI KANAN -->
+        <div class="f-right">
+            <!-- Kotak Komunitas -->
+            <div class="f-card">
+                <h4>Social Community Hub</h4>
+                <p>Bergabunglah dengan diskusi film bersama ribuan cinephile lainnya.</p>
+                <div class="f-row-btn">
+                    <a href="#" class="f-btn">Discord</a>
+                    <a href="#" class="f-btn">Instagram</a>
+                    <a href="#" class="f-btn">X</a>
+                </div>
+            </div>
+            </div>
+
+            <!-- Bawah Kanan (Partner & Legal Sejajar) -->
+            <div class="f-split">
+                <div class="f-card sm">
+                    <h4>Streaming</h4>
+                    <div class="f-tags">
+                        <span>Netflix</span> <span>Disney+</span> <span>Prime Video</span>
+                    </div>
+                </div>
+                </div>
+                <div class="f-pripo">
+                <div class="f-card pp">
+                    <h4>Legal & Info</h4>
+                    <div class="f-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+    
+
+    <!-- BASEMENT BAWAH -->
+    <div class="f-bottom">
+        <p>&copy; 2026 CineList. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- PENGHUBUNG KE FILE JAVASCRIPT -->
+<script src="js/auth.js"></script>
+<script src="js/app.js"></script>
+<script src="js/api.js"></script>
+</body>
+</html>

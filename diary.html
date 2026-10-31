@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Diary — MyWatchedList</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- =========================
+         TOP LOGO
+    ========================== -->
+    <a href="index.html" class="site-logo">
+        <span>Cinelist</span>
+    </a>
+
+
+    <!-- Side Navigation -->
+    <div class="side-nav" id="sideNav">
+
+        <!-- Handle -->
+        <button class="side-nav-handle" id="sideNavHandle">
+            <span>‹</span>
+        </button>
+
+        <!-- Navigation Panel -->
+        <div class="side-nav-panel">
+
+            <div class="side-nav-logo">
+                Diary
+            </div>
+
+            <nav class="side-nav-links">
+                <a href="profile.html">Profile</a>
+                <a href="diary.html" class="active">Diary</a>
+                <a href="stats.html">Stats</a>
+            </nav>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="diary-page">
+
+        <!-- HEADER -->
+
+        <header class="diary-header">
+
+            <p class="eyebrow">PERSONAL JOURNAL</p>
+
+            <h1>My Diary</h1>
+
+            <p class="subtitle">
+                A record of what I watched, felt, and remembered.
+            </p>
+
+        </header>
+
+
+        <!-- =========================
+             FILTER BAR
+        ========================== -->
+
+        <section class="diary-toolbar">
+
+            <div class="toolbar-filters">
+
+                <!-- YEAR: cuma All / This Year -->
+                <div class="year-filter" id="yearFilter" role="group" aria-label="Filter by year">
+
+                    <button class="filter active" data-year="all" aria-pressed="true">
+                        All
+                    </button>
+
+                    <button class="filter" data-year="this-year" aria-pressed="false">
+                        This Year
+                    </button>
+
+                </div>
+
+                <!-- FILTER: tipe (Movie/Series) + genre, dibuka lewat dropdown panel -->
+                <div class="dropdown-wrapper" id="filterWrapper">
+
+                    <button
+                        class="filter filter-trigger"
+                        id="filterBtn"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        Filter <span class="caret">▾</span>
+                    </button>
+
+                    <div class="filter-panel" id="filterPanel" hidden>
+
+                        <div class="filter-panel-group">
+
+                            <p class="filter-panel-label">Type</p>
+
+                            <div class="chip-row" id="typeChips">
+
+                                <button class="chip active" type="button" data-type="all">
+                                    All
+                                </button>
+
+                                <button class="chip" type="button" data-type="movie">
+                                    Movie
+                                </button>
+
+                                <button class="chip" type="button" data-type="series">
+                                    Series
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="filter-panel-group">
+
+                            <p class="filter-panel-label">Genre</p>
+
+                            <!-- Chip genre manual. Tambah/hapus <button> di sini kalau perlu.
+                                 data-genre wajib huruf kecil, dan harus cocok sama salah satu
+                                 kata di atribut data-genres milik entry (lihat diary entry di bawah). -->
+                            <div class="chip-row" id="genreChips">
+                                <button class="chip" type="button" data-genre="thriller">
+                                    Action
+                                </button>
+                                <button class="chip" type="button" data-genre="crime">
+                                    Adventure
+                                </button>
+                                <button class="chip" type="button" data-genre="drama">
+                                    Animation
+                                </button>
+                                <button class="chip" type="button" data-genre="mystery">
+                                    Comedy
+                                </button>
+                                <button class="chip" type="button" data-genre="mystery">
+                                    Crime
+                                </button>
+                                <button class="chip" type="button" data-genre="mystery">
+                                    Drama
+                                </button>
+                                <button class="chip" type="button" data-genre="mystery">
+                                    History
+                                </button>
+                                <button class="chip" type="button" data-genre="mystery">
+                                    Horror
+                                </button>
+                                <button class="chip" type="button" data-genre="mystery">
+                                    Music
+                                </button>
+                                <button class="chip" type="button" data-genre="mystery">
+                                    Mystery
+                                </button>
+                                <button class="chip" type="button" data-genre="mystery">
+                                    Romance
+                                </button>
+                                <button class="chip" type="button" data-genre="mystery">
+                                    Sci-Fi
+                                </button>
+                                <button class="chip" type="button" data-genre="mystery">
+                                    Thriller
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="filter-panel-group">
+ 
+                            <p class="filter-panel-label">Country</p>
+ 
+                            <!-- Chip country manual. Tambah/hapus <button> di sini kalau perlu.
+                                 data-country wajib huruf kecil (pakai dash kalau 2 kata, misal
+                                 "south-korea"), dan harus cocok sama data-country milik entry. -->
+                            <div class="chip-row" id="countryChips">
+ 
+                                <button class="chip" type="button" data-country="usa">
+                                    USA
+                                </button>
+ 
+                                <button class="chip" type="button" data-country="south-korea">
+                                    South Korea
+                                </button>
+ 
+                            </div>
+ 
+                        </div>
+
+                        <button class="filter-panel-clear" id="filterClearBtn" type="button">
+                            Clear filters
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SORT -->
+                <div class="dropdown-wrapper" id="sortWrapper">
+
+                    <button
+                        class="filter filter-trigger"
+                        id="sortBtn"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        Sort: Newest <span class="caret">▾</span>
+                    </button>
+
+                    <div class="year-dropdown" id="sortPanel" hidden>
+
+                        <button type="button" class="active" data-sort="newest">
+                            Newest first
+                        </button>
+
+                        <button type="button" data-sort="oldest">
+                            Oldest first
+                        </button>
+
+                        <button type="button" data-sort="rating">
+                            Highest rated
+                        </button>
+
+                        <button type="button" data-sort="title">
+                            Title A–Z
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="search-diary-box">
+
+                <span aria-hidden="true">⌕</span>
+
+                <input
+                    type="text"
+                    id="diarySearch"
+                    placeholder="Search diary..."
+                    aria-label="Search diary entries"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TIMELINE
+        ========================== -->
+
+        <section class="diary-timeline" id="diaryTimeline">
+
+
+            <!-- =====================
+                 AUGUST 2026
+            ====================== -->
+
+            <div class="month-title" data-year="2026">
+                <span>AUGUST</span>
+                <strong>2026</strong>
+            </div>
+
+
+            <!-- ENTRY 1 -->
+
+            <article class="diary-entry" data-year="2026" data-type="movie" data-date="2026-08-30" data-rating="5" data-title="Se7en" data-genres="thriller crime" data-search="se7en 1995 david fincher thriller crime the atmosphere in this movie is insane everything feels dark uncomfortable and strangely beautiful at the same time">
+
+                <div class="timeline-dot"></div>
+
+                <div class="entry-date">
+                    <strong>30</strong>
+                    <span>AUG</span>
+                </div>
+
+
+                <div class="entry-card">
+
+                    <img
+                        src="https://image.tmdb.org/t/p/w500/6yoghtyTpznpBik8EngEmJskVUO.jpg"
+                        alt="Se7en poster"
+                        class="movie-poster"
+                        loading="lazy"
+                    >
+
+
+                    <div class="entry-content">
+
+                        <div class="entry-top">
+
+                            <div>
+                                <h2>Se7en</h2>
+
+                                <p class="movie-info">
+                                    1995 · David Fincher
+                                </p>
+                            </div>
+
+                            <div class="rating" aria-label="5 out of 5 stars">
+                                ★★★★★
+                            </div>
+
+                        </div>
+
+
+                        <p class="diary-note">
+                            The atmosphere in this movie is insane.
+                            Everything feels dark, uncomfortable, and
+                            strangely beautiful at the same time.
+                        </p>
+
+
+                        <div class="entry-meta">
+
+                            <span class="tag">
+                                THRILLER
+                            </span>
+
+                            <span class="tag">
+                                CRIME
+                            </span>
+
+                            <span class="watchdiary-type">
+                                First Watch
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- ENTRY 2 -->
+
+            <article class="diary-entry" data-year="2026" data-type="movie" data-date="2026-08-27" data-rating="5" data-title="Oldboy" data-genres="thriller mystery" data-search="oldboy 2003 park chan-wook thriller mystery still thinking about this one the story keeps getting darker as it goes and the ending hits hard">
+
+                <div class="timeline-dot"></div>
+
+                <div class="entry-date">
+                    <strong>27</strong>
+                    <span>AUG</span>
+                </div>
+
+
+                <div class="entry-card">
+
+                    <img
+                        src="https://image.tmdb.org/t/p/w500/pWDJQ2ZKQfY8F5Q6Kf1FhW2j3zJ.jpg"
+                        alt="Oldboy poster"
+                        class="movie-poster"
+                        loading="lazy"
+                    >
+
+
+                    <div class="entry-content">
+
+                        <div class="entry-top">
+
+                            <div>
+                                <h2>Oldboy</h2>
+
+                                <p class="movie-info">
+                                    2003 · Park Chan-wook
+                                </p>
+                            </div>
+
+                            <div class="rating" aria-label="5 out of 5 stars">
+                                ★★★★★
+                            </div>
+
+                        </div>
+
+
+                        <p class="diary-note">
+                            Still thinking about this one.
+                            The story keeps getting darker as it goes,
+                            and the ending hits hard.
+                        </p>
+
+
+                        <div class="entry-meta">
+
+                            <span class="tag">
+                                THRILLER
+                            </span>
+
+                            <span class="tag">
+                                MYSTERY
+                            </span>
+
+                            <span class="watchdiary-type">
+                                First Watch
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- ENTRY 3 -->
+
+            <article class="diary-entry" data-year="2026" data-type="movie" data-date="2026-08-24" data-rating="4.5" data-title="Parasite" data-genres="drama thriller" data-search="parasite 2019 bong joon-ho drama thriller a movie that gets better the more you think about it the social commentary is subtle at first then becomes impossible to ignore">
+
+                <div class="timeline-dot"></div>
+
+                <div class="entry-date">
+                    <strong>24</strong>
+                    <span>AUG</span>
+                </div>
+
+
+                <div class="entry-card">
+
+                    <img
+                        src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg"
+                        alt="Parasite poster"
+                        class="movie-poster"
+                        loading="lazy"
+                    >
+
+
+                    <div class="entry-content">
+
+                        <div class="entry-top">
+
+                            <div>
+                                <h2>Parasite</h2>
+
+                                <p class="movie-info">
+                                    2019 · Bong Joon-ho
+                                </p>
+                            </div>
+
+                            <div class="rating" aria-label="4.5 out of 5 stars">
+                                ★★★★½
+                            </div>
+
+                        </div>
+
+
+                        <p class="diary-note">
+                            A movie that gets better the more you think
+                            about it. The social commentary is subtle at
+                            first, then becomes impossible to ignore.
+                        </p>
+
+
+                        <div class="entry-meta">
+
+                            <span class="tag">
+                                DRAMA
+                            </span>
+
+                            <span class="tag">
+                                THRILLER
+                            </span>
+
+                            <span class="watchdiary-type">
+                                Rewatch
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================
+                 JULY 2026
+            ====================== -->
+
+            <div class="month-title" data-year="2026">
+                <span>JULY</span>
+                <strong>2026</strong>
+            </div>
+
+
+            <!-- ENTRY 4 -->
+
+            <article class="diary-entry" data-year="2026" data-type="movie" data-date="2026-07-18" data-rating="5" data-title="Memories of Murder" data-genres="crime drama" data-search="memories of murder 2003 bong joon-ho crime drama quiet unsettling and incredibly atmospheric one of those films that stays in your head long after the credits">
+
+                <div class="timeline-dot"></div>
+
+                <div class="entry-date">
+                    <strong>18</strong>
+                    <span>JUL</span>
+                </div>
+
+
+                <div class="entry-card">
+
+                    <img
+                        src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
+                        alt="Memories of Murder poster"
+                        class="movie-poster"
+                        loading="lazy"
+                    >
+
+
+                    <div class="entry-content">
+
+                        <div class="entry-top">
+
+                            <div>
+                                <h2>Memories of Murder</h2>
+
+                                <p class="movie-info">
+                                    2003 · Bong Joon-ho
+                                </p>
+                            </div>
+
+                            <div class="rating" aria-label="5 out of 5 stars">
+                                ★★★★★
+                            </div>
+
+                        </div>
+
+
+                        <p class="diary-note">
+                            Quiet, unsettling, and incredibly atmospheric.
+                            One of those films that stays in your head
+                            long after the credits.
+                        </p>
+
+
+                        <div class="entry-meta">
+
+                            <span class="tag">
+                                CRIME
+                            </span>
+
+                            <span class="tag">
+                                DRAMA
+                            </span>
+
+                            <span class="watchdiary-type">
+                                First Watch
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <p class="diary-empty" id="diaryEmpty" hidden>
+                No entries match your search.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer class="footer-fix-new">
+    <div class="footer-box">
+        
+        <!-- SISI KIRI -->
+        <div class="f-left">
+            <h2 class="f-logo">CineList</h2>
+            <p class="f-slogan">A new home for film and series lovers</p>
+            <p class="f-sub">Join us for an amazing experience.</p>
+        </div>
+
+        <!-- SISI KANAN -->
+        <div class="f-right">
+            <!-- Kotak Komunitas -->
+            <div class="f-card">
+                <h4>Social Community Hub</h4>
+                <p>Bergabunglah dengan diskusi film bersama ribuan cinephile lainnya.</p>
+                <div class="f-row-btn">
+                    <a href="#" class="f-btn">Discord</a>
+                    <a href="#" class="f-btn">Instagram</a>
+                    <a href="#" class="f-btn">X</a>
+                </div>
+            </div>
+            </div>
+
+            <!-- Bawah Kanan (Partner & Legal Sejajar) -->
+            <div class="f-split">
+                <div class="f-card sm">
+                    <h4>Streaming</h4>
+                    <div class="f-tags">
+                        <span>Netflix</span> <span>Disney+</span> <span>Prime Video</span>
+                    </div>
+                </div>
+                </div>
+                <div class="f-pripo">
+                <div class="f-card pp">
+                    <h4>Legal & Info</h4>
+                    <div class="f-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+    
+
+    <!-- BASEMENT BAWAH -->
+    <div class="f-bottom">
+        <p>&copy; 2026 CineList. All rights reserved.</p>
+    </div>
+</footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="js/diary.js"></script>
+
+</body>
+</html>

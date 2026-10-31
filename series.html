@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinelist - TV Series</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <!-- Section Series Spotlight -->
+<section class="film-spotlight-carousel" id="carouselWrapper">
+    <!-- Track -->
+    <div class="spotlight-track" id="spotTrack">
+        
+        <!-- Slide 1 (Series) -->
+        <div class="spotlight-slide active" data-index="0">
+            <img src="https://images7.alphacoders.com/133/thumb-1920-1335028.jpg" alt="Stranger Things" class="spotlight-backdrop">
+            <div class="spotlight-gradient-overlay"></div>
+            <div class="spotlight-content-left">
+                <h1 class="spotlight-title">Stranger Things</h1>
+                <div class="spotlight-metadata">
+                    <span>2025</span><span class="spotlight-dot">•</span><span>Sci-Fi / Horror</span><span class="spotlight-dot">•</span><span>5 Seasons</span><span class="spotlight-dot">•</span><span class="spotlight-age-box">16+</span>
+                </div>
+                <div class="spotlight-rating">
+                    <i class="fa-solid fa-star" style="color: #f5c518;"></i>
+                    <span class="spotlight-rating-score">4.9 / 5.0</span>
+                    <span class="spotlight-rating-count">(35.8K ulasan)</span>
+                </div>
+                <p class="spotlight-synopsis">When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.</p>
+                <div class="spotlight-actions">
+                    <button class="btn-spotlight-primary"><i class="fa-solid fa-plus"></i> Add to Watchlist</button>
+                    <button class="btn-spotlight-secondary">More Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 (Series) -->
+        <div class="spotlight-slide" data-index="1">
+            <img src="https://images2.alphacoders.com/131/thumb-1920-1317540.jpg" alt="The Last of Us" class="spotlight-backdrop">
+            <div class="spotlight-gradient-overlay"></div>
+            <div class="spotlight-content-left">
+                <h1 class="spotlight-title">The Last of Us</h1>
+                <div class="spotlight-metadata">
+                    <span>2026</span><span class="spotlight-dot">•</span><span>Drama / Adventure</span><span class="spotlight-dot">•</span><span>2 Seasons</span><span class="spotlight-dot">•</span><span class="spotlight-age-box">18+</span>
+                </div>
+                <div class="spotlight-rating">
+                    <i class="fa-solid fa-star" style="color: #f5c518;"></i>
+                    <span class="spotlight-rating-score">4.8 / 5.0</span>
+                    <span class="spotlight-rating-count">(28.1K ulasan)</span>
+                </div>
+                <p class="spotlight-synopsis">After a global pandemic destroys civilization, a hardened survivor takes charge of a 14-year-old girl who may be humanity's last hope.</p>
+                <div class="spotlight-actions">
+                    <button class="btn-spotlight-primary"><i class="fa-solid fa-plus"></i> Add to Watchlist</button>
+                    <button class="btn-spotlight-secondary">More Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 (Series) -->
+        <div class="spotlight-slide" data-index="2">
+            <img src="https://images.alphacoders.com/132/thumb-1920-1329241.jpg" alt="House of the Dragon" class="spotlight-backdrop">
+            <div class="spotlight-gradient-overlay"></div>
+            <div class="spotlight-content-left">
+                <h1 class="spotlight-title">House of the Dragon</h1>
+                <div class="spotlight-metadata">
+                    <span>2024</span><span class="spotlight-dot">•</span><span>Fantasy / Drama</span><span class="spotlight-dot">•</span><span>3 Seasons</span><span class="spotlight-dot">•</span><span class="spotlight-age-box">18+</span>
+                </div>
+                <div class="spotlight-rating">
+                    <i class="fa-solid fa-star" style="color: #f5c518;"></i>
+                    <span class="spotlight-rating-score">4.7 / 5.0</span>
+                    <span class="spotlight-rating-count">(19.5K ulasan)</span>
+                </div>
+                <p class="spotlight-synopsis">An internal succession war within House Targaryen at the height of its power, 172 years before the birth of Daenerys Targaryen.</p>
+                <div class="spotlight-actions">
+                    <button class="btn-spotlight-primary"><i class="fa-solid fa-plus"></i> Add to Watchlist</button>
+                    <button class="btn-spotlight-secondary">More Details</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigasi Next -->
+    <div class="peek-peek-hint" id="peekHint" title="Geser ke series berikutnya">
+        <span class="vertical-title" id="verticalTitle">The Last of Us</span>
+        <span class="vertical-label">Next Series</span>
+    </div>
+
+    <!-- Navigasi Prev -->
+    <div class="peek-peek-hint-prev-hint" id="prevHint" title="Geser ke series sebelumnya">
+        <span class="vertical-label-prev">Prev Series</span>
+        <span class="vertical-title-prev" id="prevVerticalTitle">House of the Dragon</span>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo">Cinelist</a>
+        </div>
+            <ul class="nav-links">
+                <li><a href="film.html">FILM</a></li>
+                <li><a href="series.html">SERIES</a></li>
+                <li><a href="list.html">LIST</a></li>
+                <li><a href="social.html">SOCIAL</a></li>
+            </ul>
+
+        <div class="nav-center">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+        </div>
+
+        <!-- Bagian yang muncul kalau LOGIN -->
+<div class="nav-right" id="loggedMenu" style="display: none;">
+    <button class="btn-rate">
+        <i class="fa-solid fa-plus"></i>Rate
+    </button>
+    
+    <!-- Tambahkan id="profileContainer" di sini -->
+    <div class="profile-dropdown-container" id="profileContainer">
+        <div class="profile-bubble" onclick="toggleDropdown()">
+            <div class="profile-avatar">
+                <img src="https://i.pinimg.com/736x/62/94/29/629429d1b8f3dea70be25ec1ed16bab7.jpg" alt="Foto Profil">
+            </div>
+            <span class="profile-username" id="profileUsername">User</span>
+        </div>
+        <div class="dropdown-menu" id="profileDropdown">
+    <a href="profile.html"><i class="fa-solid fa-user"></i> Profile Saya</a>
+    <a href="#"><i class="fa-solid fa-gear"></i> Pengaturan</a>
+    <div class="dropdown-divider"></div>
+    <a href="#" class="logout" onclick="logout()"><i class="fa-solid fa-door-open"></i> Keluar</a>
+</div>
+    </div>
+</div>
+
+<!-- Bagian yang muncul kalau GUEST (Dipisah, sejajar dengan loggedMenu) -->
+<div class="auth-buttons" id="guestMenu" style="display: none;">
+    <a href="index.html" class="btn-banner btn-register">Sign Up</a>
+    <a href="index.html" class="btn-banner btn-login">Login</a>
+</div>
+    </nav>
+</section>
+
+<!-- Section Trending Series -->
+<section class="trending-now-section">
+    <div class="trending-header">
+        <h2 class="trend-title"><i class="fa-solid fa-fire" style="color: #f5c518; margin-right: 10px;"></i>Trending TV Series</h2>
+        <a href="#" class="trending-link">See All &rarr;</a>
+    </div>
+
+    <div class="trending-carousel">
+        <div class="trending-track">
+            <!-- Kartu Series 1 -->
+            <div class="trending-card">
+                <div class="trending-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/u3bZgnGQ9T01sWNhyveQz0wH0ID.jpg" alt="Poster Series">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.7</div>
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Sci-Fi / Drama</span>
+                        <span class="hover-year">2025</span>
+                    </div>
+                </div>
+                <h4 class="trending-movie-title">Stranger Things</h4>
+            </div>
+            
+            <!-- Kartu Series 2 -->
+             <div class="trending-card">
+                <div class="trending-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/u3bZgnGQ9T01sWNhyveQz0wH0ID.jpg" alt="Poster Series">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.7</div>
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Sci-Fi / Drama</span>
+                        <span class="hover-year">2025</span>
+                    </div>
+                </div>
+                <h4 class="trending-movie-title">Stranger Things</h4>
+            </div>
+
+            <!-- Kartu Series 3 -->
+             <div class="trending-card">
+                <div class="trending-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/u3bZgnGQ9T01sWNhyveQz0wH0ID.jpg" alt="Poster Series">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.7</div>
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Sci-Fi / Drama</span>
+                        <span class="hover-year">2025</span>
+                    </div>
+                </div>
+                <h4 class="trending-movie-title">Stranger Things</h4>
+            </div>
+
+            <!-- Kartu Series 4 -->
+             <div class="trending-card">
+                <div class="trending-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/u3bZgnGQ9T01sWNhyveQz0wH0ID.jpg" alt="Poster Series">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.7</div>
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Sci-Fi / Drama</span>
+                        <span class="hover-year">2025</span>
+                    </div>
+                </div>
+                <h4 class="trending-movie-title">Stranger Things</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section New Season / Releases -->
+<section class="new-releases-section">
+    <div class="releases-header">
+        <h2 class="releases-title"><i class="fa-regular fa-calendar-days" style="color: #63b3ed; margin-right: 10px;"></i>New Episodes & Seasons</h2>
+        <a href="#" class="releases-link">See All &rarr;</a>
+    </div>
+
+    <div class="releases-carousel">
+        <div class="releases-track">
+            <!-- Kartu New Season 1 -->
+            <div class="releases-card">
+                <div class="releases-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/qJ2tW6WMUDux911r6m7haRef0WH.jpg" alt="Poster Series">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.9</div>
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Action / Crime</span>
+                        <span class="hover-year">Season 2</span>
+                    </div>
+                </div>
+                <h4 class="releases-movie-title">The Night Agent</h4>
+            </div>
+
+            <!-- Kartu New Season 2 -->
+            <div class="releases-card">
+                <div class="releases-poster-box">
+                    <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/qJ2tW6WMUDux911r6m7haRef0WH.jpg" alt="Poster Series">
+                    <div class="rating-top-right"><i class="fa-solid fa-star"></i> 8.9</div>
+                    <div class="poster-hover-info">
+                        <span class="hover-genre">Action / Crime</span>
+                        <span class="hover-year">Season 2</span>
+                    </div>
+                </div>
+                <h4 class="releases-movie-title">The Night Agent</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tombol Floating -->
+<button class="filter-fab" id="filterFab">
+    <i class="fa-solid fa-filter"></i> <span>Filter</span>
+</button>
+
+<!-- Modal Pop-up Filter -->
+<div class="filter-modal" id="filterModal">
+    <div class="filter-content">
+        <h3>Filter Series</h3>
+        <div class="filter-group">
+            <label>Genre</label>
+            <select id="genreSelect">
+                <option value="all">Semua</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="drama">Drama</option>
+                <option value="fantasy">Fantasy</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>Urutkan</label>
+            <select id="sortSelect">
+                <option value="newest">Terbaru</option>
+                <option value="top">Rating Tertinggi</option>
+            </select>
+        </div>
+        <button id="applyFilter">Terapkan</button>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer-fix-new">
+    <div class="footer-box">
+        <div class="f-left">
+            <h2 class="f-logo">CineList</h2>
+            <p class="f-slogan">A new home for film and series lovers</p>
+            <p class="f-sub">Join us for an amazing experience.</p>
+        </div>
+        <div class="f-right">
+            <div class="f-card">
+                <h4>Social Community Hub</h4>
+                <p>Bergabunglah dengan diskusi series bersama ribuan cinephile lainnya.</p>
+                <div class="f-row-btn">
+                    <a href="#" class="f-btn">Discord</a>
+                    <a href="#" class="f-btn">Instagram</a>
+                    <a href="#" class="f-btn">X</a>
+                </div>
+            </div>
+        </div>
+        <div class="f-split">
+            <div class="f-card sm">
+                <h4>Streaming</h4>
+                <div class="f-tags">
+                    <span>Netflix</span> <span>Disney+</span> <span>HBO Max</span>
+                </div>
+            </div>
+        </div>
+        <div class="f-pripo">
+            <div class="f-card pp">
+                <h4>Legal & Info</h4>
+                <div class="f-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-bottom">
+        <p>&copy; 2026 CineList. All rights reserved.</p>
+    </div>
+</footer>
+
+    <!-- JAVASCRIPT -->
+     <script src="js/auth.js"></script>
+    <script src="js/series.js"></script>
+</body>
+</html>
